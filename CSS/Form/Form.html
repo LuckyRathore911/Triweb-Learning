@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML FORM</title>
+    <link rel="stylesheet" href="./Form.css" />
+  </head>
+  <body>
+    <form>
+      <div class="main-div">
+        <h1>Form</h1>
+        <div class="one-value-container">
+          <p class="form-question">First Name</p>
+          <div>
+            <input
+              type="text"
+              id="first-name"
+              required
+              placeholder="Enter First Name"
+            />
+          </div>
+        </div>
+        <div class="one-value-container">
+          <p class="form-question">Last Name</p>
+          <input type="text" id="last-name" placeholder="Enter Last Name" />
+        </div>
+        <div class="one-value-container">
+          <p class="form-question">Email</p>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="email@gmail.com"
+          />
+        </div>
+        <div class="one-value-container">
+          <p class="form-question">Contact</p>
+          <input
+            type="phone"
+            id="phone"
+            required
+            placeholder="Enter Contact Number"
+          />
+        </div>
+        <div class="one-value-container">
+          <p class="form-question">Date Of Birth</p>
+          <input type="date" id="date-of-birth" required />
+        </div>
+        <div class="one-value-container">
+          <p class="form-question">Age</p>
+          <input type="number" id="age" />
+        </div>
+        <div class="one-value-container">
+          <p class="form-question">Gender</p>
+          <input type="radio" name="optional" />Male
+          <input type="radio" name="optional" />Female
+          <input type="radio" name="optional" />Transgender
+        </div>
+        <div class="one-value-container">
+          <p class="form-question">Resume File</p>
+          <input
+            type="file"
+            class="resume-upload"
+            name="fileupload"
+            accept="image/*"
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>
