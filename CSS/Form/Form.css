@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(230, 241, 248) ;
+}
+.main-div{
+    background-color: white;
+    height: 39rem;
+    width: 32rem;
+    padding: 0.5rem 3.2rem 0 3.2rem;
+    border-radius: 8%;
+    transform: translateX(55%);
+}
+h1{
+   transform: translateX(40%);
+   color: rgb(71, 157, 190) ;
+}
+.form-question{
+    width: 8rem;
+    font-size: 1.2rem;
+    margin: 1rem 4rem 0 2.4rem;
+    padding: 0.4rem;
+    border-radius: 5%;
+}
+.one-value-container{
+    display: flex;
+    align-items:baseline;
+}
+input{
+    font-size: 1rem;
+    padding: 0.4rem;
+    border-radius: 5%;
+    border: 0.1rem solid black;
+}
+#date-of-birth{
+    width: 12.2rem;
+}
+.resume-upload{
+    border: none;
+    margin-left: 0.8rem;
+}
+button{
+    margin: 2rem 2.4rem 2rem 22rem;
+    color: white;
+    color: rgb(71, 157, 190) ;
+    font-size: larger;
+    width: 6.4rem;
+    height: 2.4rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+button:hover{
+    background-color: rgb(10, 128, 175) ;
+    color: white;
+    border: 0.1rem solid white;
+    width: 6.3rem;
+    height: 2.3rem;
+
+}
