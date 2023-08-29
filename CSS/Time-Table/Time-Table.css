@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(208, 219, 228);
+}
+h1{
+    margin-top: 1.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+table{
+    margin-top: 6.4rem;
+    border-collapse: collapse;
+    background-color:rgb(238, 245, 136);
+}
+th{
+    background-color: black;
+    color: white;
+}
+td{
+    text-align: center;
+}
