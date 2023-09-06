@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <script>
+      window.x = 6; //global variable
+      console.log(window.x); //6
+
+      var y = 2;
+      console.log(window.y); //2  .....because window block is not closed
+
+      let z = 1;
+      console.log(window.z); //undefined
+    </script>
+  </body>
+</html>
