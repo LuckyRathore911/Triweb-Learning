@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <h1>Heading 1</h1>
+    <button>Toggle Text</button>
+    <img src="./images/git.jpeg" alt="" height="320rem" width="320rem" />
+  </body>
+
+  <script>
+    var a = document.querySelector("h1");
+    var b = document.querySelector("button");
+    var c = document.querySelector("img");
+
+    b.onclick = function () {
+      if (a.textContent == "Heading 1") a.textContent = "Heading 1 modified";
+      else a.textContent = "Heading 1";
+    };
+
+    c.onclick = function () {
+      if (c.getAttribute("src") == "./images/git.jpeg")
+        c.setAttribute("src", "./images/nodejs.png");
+      else c.setAttribute("src", "./images/git.jpeg");
+    };
+  </script>
+</html>
