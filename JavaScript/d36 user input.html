@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<body>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <button id="add">ADD</button>
+    
+    <script>
+
+        function add(n1, n2) {
+            console.log(n1 + n2);
+        }
+
+        //using prompt
+        let x = parseInt(prompt("Enter first number"));
+        let y = parseInt(prompt("Enter second number"));
+        add(x, y);
+
+        //using input box
+        function Listener() {
+            let x = parseInt(document.getElementById('num1').value);
+            let y = parseInt(document.getElementById('num2').value);
+            add(x, y)
+        }
+        let btn = document.getElementById('add');
+        btn.addEventListener('click', Listener);
+
+    </script>
+
+</body>
+
+</html>
