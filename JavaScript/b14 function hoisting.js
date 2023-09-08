@@ -12,3 +12,10 @@ pqr(); //Uncaught TypeError: pqr is not a function
 var pqr = function () {
   console.log("pqr");
 };
+
+//console.log(num3);   //ReferenceError: Cannot access 'num3' before initialization
+//console.log(num3());   //ReferenceError: Cannot access 'num3' before initialization
+const num3 = function () {
+  return 3;
+};
+console.log(num3()); //3
