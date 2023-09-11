@@ -23,3 +23,15 @@ console.log(ob2);
 
 //insertion order is not maintained
 console.log(ob2[x]);
+
+/*
+{ a: 12, b: 13, c: 14 }
+{ a: 90, b: 80, c: 70 }
+13
+13
+undefined
+null
+{ a: 12, b: 13, c: 14, x: 15 }
+{ '76': 60, a: 90, b: 80, c: 70, d: null }
+60
+*/

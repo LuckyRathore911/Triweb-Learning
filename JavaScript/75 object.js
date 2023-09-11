@@ -23,7 +23,7 @@ console.log(ob3);
 //Storing values of one object in another
 console.log("-----------------");
 let obj1 = { name: "Lucky", r: 12 };
-let obj2 = obj1;
+let obj2 = obj1; //both reference the same memory location
 console.log(obj1);
 console.log(obj2);
 obj2.name = "Princy";
@@ -61,3 +61,32 @@ console.log(obj4);
 obj4.display();
 
 obj4.printAge(25);
+
+/*
+{ a: 1, b: 2, c: 3, d: 4 }
+Value at a = 1
+Value at b = 2
+Value at c = 3
+Value at d = 4
+[ 'a', 'b', 'c', 'd' ]
+fun { a: 56, v: 67, c: 78, x: 89 }
+fun { a: 67, v: 78, c: 89, x: undefined }
+-----------------
+{ name: 'Lucky', r: 12 }
+{ name: 'Lucky', r: 12 }
+{ name: 'Princy', r: 15 }
+{ name: 'Princy', r: 15 }
+-----------------
+{
+  g: 'Lucky',
+  h: 'India',
+  display: [Function: display],
+  printAge: [Function: printAge]
+}
+Lucky lives in India
+Age is 22
+{}
+{ g: 'Iliana', h: 'America' }
+Iliana lives in America
+Age is 25
+*/
