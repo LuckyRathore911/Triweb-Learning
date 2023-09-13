@@ -1,0 +1,81 @@
+*{
+    box-sizing: border-box;
+    color: white;
+}
+h1{
+    color: black;
+    width: fit-content;
+    font-size: 4rem;
+    font-variant: small-caps;
+    margin: 1rem auto 2rem auto;
+}
+.main-div{
+    max-width: 80rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.button-div{
+    margin-right: 8rem;
+}
+.canvas-box{
+    display: flex;
+}
+.coloured-box{
+    width: 16rem;
+    height:12rem;
+    border: none;
+    border-radius: 15%;
+    margin: 1rem;
+    display: flex;
+}
+h6{
+    font-weight: bolder;
+    font-size: 2rem;
+    max-width: fit-content;
+    margin: auto;
+    align-self: center;
+}
+.red-box{
+    background-color: red;
+}
+.green-box{
+    background-color: green;
+}
+.blue-box{
+    background-color: blue;
+}
+.yellow-box{
+    background-color: yellow;
+}
+#yellow-box{
+    color: black;
+}
+input{
+    margin: 2rem auto 4rem auto;
+    height: 4rem;
+    font-size: 2rem;
+    color: black;
+    width: 17rem;
+    border: 0.25rem solid black;
+    border-radius: 5%;
+}
+.button-container{
+    margin-bottom: 2rem;
+}
+.add-delete{
+   background-color: rgb(126, 42, 165);
+}
+button{
+    min-width:min-content ;
+    width: 8rem;
+    background-color: rgb(170, 10, 103);
+    border: none;
+    border-radius: 5%;
+    margin-right: 1rem;
+    padding: 0.5rem;
+}
+.glide-button{
+    display: block;
+    margin: 0 auto 1rem auto;
+}
