@@ -1,0 +1,9 @@
+.coloured-box{
+    max-width: 8rem;
+    height:8rem;
+    border: 0.2rem solid black;
+}
+h6{
+    font-weight: bolder;
+    font-size: 2rem;
+}
