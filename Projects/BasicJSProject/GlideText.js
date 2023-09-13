@@ -1,4 +1,5 @@
 let initialText = document.querySelector("h1");
+
 let redBox = document.getElementById("red-box");
 let greenBox = document.getElementById("green-box");
 let blueBox = document.getElementById("blue-box");
@@ -14,25 +15,56 @@ let blueButton = document.getElementById("blue-button");
 let yellowButton = document.getElementById("yellow-button");
 
 function addition() {
-  initialText.innerHTML = inputTag.value;
+  if (inputTag.value != "") {
+    initialText.innerHTML = inputTag.value;
+    addButton.disabled = true;
+    inputTag.disabled = true;
+    deleteButton.disabled = false;
+  }
 }
 function deletion() {
-  initialText.innerHTML = "";
-  redBox.innerHTML = "";
+  if (inputTag.value != "") {
+    addButton.disabled = false;
+    inputTag.disabled = false;
+    initialText.innerHTML = "Text";
+    redBox.innerHTML = "";
+    greenBox.innerHTML = "";
+    blueBox.innerHTML = "";
+    yellowBox.innerHTML = "";
+    inputTag.value = "";
+  }
+}
+
+function red() {
+  addition();
+  redBox.innerHTML = inputTag.value;
   greenBox.innerHTML = "";
   blueBox.innerHTML = "";
   yellowBox.innerHTML = "";
 }
-
-function red() {
-  redBox.innerHTML = inputTag.value;
-}
 function green() {
+  addition();
   greenBox.innerHTML = inputTag.value;
+  redBox.innerHTML = "";
+  blueBox.innerHTML = "";
+  yellowBox.innerHTML = "";
 }
 function blue() {
+  addition();
   blueBox.innerHTML = inputTag.value;
+  redBox.innerHTML = "";
+  greenBox.innerHTML = "";
+  yellowBox.innerHTML = "";
 }
 function yellow() {
+  addition();
   yellowBox.innerHTML = inputTag.value;
+  redBox.innerHTML = "";
+  greenBox.innerHTML = "";
+  blueBox.innerHTML = "";
 }
+
+redButton.addEventListener("click", red);
+greenButton.addEventListener("click", green);
+blueButton.addEventListener("click", blue);
+yellowButton.addEventListener("click", yellow);

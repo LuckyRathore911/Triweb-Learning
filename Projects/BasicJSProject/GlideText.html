@@ -8,28 +8,49 @@
   </head>
   <body>
     <h1>Text</h1>
-    <div class="coloured-box">
-      <h6 class="heading" id="red-box">a</h6>
-    </div>
-    <div class="coloured-box">
-      <h6 class="heading" id="green-box">b</h6>
-    </div>
-    <div class="coloured-box">
-      <h6 class="heading" id="blue-box">c</h6>
-    </div>
-    <div class="coloured-box">
-      <h6 class="heading" id="yellow-box">d</h6>
-    </div>
-    <input type="text" id="input" />
-    <div class="button-container">
-      <button id="add-button" onclick="addition()">ADD</button>
-      <button id="delete-button" onclick="deletion()">DELETE</button>
-    </div>
-    <div class="button-container">
-      <button id="red-button" onclick="red()">GlideText to Red</button>
-      <button id="green-button" onclick="green()">GlideText to Green</button>
-      <button id="blue-button" onclick="blue()">GlideText to Blue</button>
-      <button id="yellow-button" onclick="yellow()">GlideText to Yellow</button>
+    <div class="main-div">
+      <div class="canvas-div">
+        <div class="canvas-box">
+          <div class="coloured-box red-box">
+            <h6 class="heading" id="red-box"></h6>
+          </div>
+          <div class="coloured-box green-box">
+            <h6 class="heading" id="green-box"></h6>
+          </div>
+        </div>
+        <div class="canvas-box">
+          <div class="coloured-box blue-box">
+            <h6 class="heading" id="blue-box"></h6>
+          </div>
+          <div class="coloured-box yellow-box">
+            <h6 class="heading" id="yellow-box"></h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-div">
+        <input type="text" id="input" />
+        <div class="button-container">
+          <button id="add-button" class="add-delete" onclick="addition()">
+            ADD
+          </button>
+          <button id="delete-button" class="add-delete" onclick="deletion()">
+            DELETE
+          </button>
+        </div>
+        <div class="button-container">
+          <button id="red-button" class="glide-button">GlideText to Red</button>
+          <button id="green-button" class="glide-button">
+            GlideText to Green
+          </button>
+          <button id="blue-button" class="glide-button">
+            GlideText to Blue
+          </button>
+          <button id="yellow-button" class="glide-button">
+            GlideText to Yellow
+          </button>
+        </div>
+      </div>
     </div>
   </body>
   <script src="GlideText.js"></script>
