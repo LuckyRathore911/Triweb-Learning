@@ -1,4 +1,4 @@
-//Weak means each key is a object itself
+//Weak means each key is an object itself
 let ob = { name: "Lucky" };
 let wm = { [ob]: "Hi" };
 console.log(wm);
@@ -6,7 +6,7 @@ console.log(wm[ob]);
 ob = "Rathore"; // ob is lost
 console.log(wm[ob]); //key is lost
 
-console.log("====wkMap====");
+console.log("====WeakMap====");
 let wkMap = new WeakMap();
 ob1 = {};
 ob2 = { 2: 2 };

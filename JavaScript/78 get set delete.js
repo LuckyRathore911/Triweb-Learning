@@ -8,9 +8,11 @@ let obj = {
   },
 };
 console.log(obj);
-console.log(obj.a);
+console.log(obj.a); //25
+
 obj.b = 40;
-console.log(obj.a);
+console.log(obj.b); //undefined
+console.log(obj.a); //40
 
 let ob = { a: 12, b: 45 };
 console.log(ob);

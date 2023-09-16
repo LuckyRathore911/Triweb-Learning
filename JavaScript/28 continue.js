@@ -1,4 +1,4 @@
-console.log("continue stament in inner loop of Nested loop\n");
+console.log("continue statement in inner loop of Nested loop\n");
 let x = 5;
 
 for (let i = 1; i <= x; i++) {
@@ -12,7 +12,7 @@ for (let i = 1; i <= x; i++) {
   }
 }
 
-console.log("continue stament in outer loop of Nested loop\n");
+console.log("continue statement in outer loop of Nested loop\n");
 let y = 5;
 for (let i = 1; i <= y; i++) {
   //outer loop
