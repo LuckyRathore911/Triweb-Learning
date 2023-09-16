@@ -14,7 +14,9 @@ let a = 3,
 if (a > b) console.log(a - b);
 else console.log(a + b);
 
-//Falsy values
+//-------------Falsy values-------------
+
+//false
 if (false) console.log("In if 1"); // control never reaches here
 else console.log("In else 1");
 

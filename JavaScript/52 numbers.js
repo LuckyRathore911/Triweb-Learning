@@ -2,14 +2,14 @@ let n1 = 234;
 console.log(n1); //234
 
 // Don't do like this
-let n2 = 0234;
-console.log(n2); //156
+// let n2 = 0234;
+// console.log(n2); //156
 
-let n3 = 0110;
-console.log(n3); //72
+// let n3 = 0110;
+// console.log(n3); //72
 
-let n4 = 0967;
-console.log(n4); //967
+// let n4 = 0967;
+// console.log(n4); //967
 
 console.log("With Notation");
 //better to do like below
