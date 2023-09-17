@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML FORM</title>
+    <link rel="stylesheet" href="./Form.css" />
+  </head>
+  <body>
+    <form id="my-form">
+      <div class="main-div">
+        <h1><u>Form</u></h1>
+
+        <div class="one-value-container">
+          <label class="form-question">First Name<span>*</span></label>
+          <div>
+            <input
+              type="text"
+              id="first-name"
+              required
+              placeholder="Enter First Name"
+              title="first name"
+            /><span id="fname_error"></span>
+          </div>
+        </div>
+
+        <div class="one-value-container">
+          <label class="form-question">Last Name</label>
+          <input
+            type="text"
+            id="last-name"
+            placeholder="Enter Last Name"
+          /><span id="lname_error"></span>
+        </div>
+
+        <div class="one-value-container">
+          <label class="form-question">Email<span>*</span></label>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="email@gmail.com"
+          /><span id="email_error"></span>
+        </div>
+
+        <div class="one-value-container">
+          <label class="form-question">Phone Number<span>*</span></label>
+          <input type="tel" id="phone" placeholder="Enter Phone Number" required/>
+          <span id="phone_error"></span>
+        </div>
+
+        <div class="one-value-container">
+          <label class="form-question">Date Of Birth</label>
+          <input type="date" id="date-of-birth" />
+        </div>
+
+        <div class="one-value-container">
+          <label class="form-question">Age</label>
+          <input type="number" id="age" />
+          <span id="age_error"></span>
+        </div>
+
+        <div class="one-value-container">
+          <label class="form-question">Gender</label>
+          <input type="radio" name="optional" />Male
+          <input type="radio" name="optional" />Female
+          <input type="radio" name="optional" />Transgender
+        </div>
+
+        <div class="one-value-container">
+          <label class="form-question">Resume<span>*</span></label>
+          <input
+            type="file"
+            class="resume-upload"
+            name="fileupload"
+            accept="application/pdf,image/*"
+            required
+          />
+        </div>
+
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+  <script src="Form.js"></script>
+</html>
