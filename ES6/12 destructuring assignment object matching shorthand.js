@@ -15,3 +15,9 @@ var { sname, rno, level } = getStudent();
 
 console.log(sname, rno, level);
 console.log(sname, rno);
+
+/*
+{ sname: 'Lucky', rno: 36, level: 'BTech' }
+Lucky 36 BTech
+Lucky 36
+*/

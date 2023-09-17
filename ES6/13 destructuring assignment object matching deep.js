@@ -20,3 +20,7 @@ let {
 } = getData();
 
 console.log(employeeName, employeeSalary, employeeCity, state, location);
+
+/*
+Aman 100000 Banglore Karnataka { city: 'Banglore', state: 'Karnataka' }
+*/
