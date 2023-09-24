@@ -1,8 +1,16 @@
 const express = require("express");
 
+const calculatorRouter = require("./routers/calculator");
+
 const app = express();
 
 app.use(express.json()); // to parse json data from request body
+
+app.use("/calculator", calculatorRouter);
+
+/*(req,res)=>{} is a middleware function which can access both
+the request from client as well as the response from server
+*/
 
 app.get("/get", (req, res) => {
   console.log(req.body);
@@ -12,7 +20,8 @@ app.get("/get", (req, res) => {
   x = req.body.a;
   y = req.body.b;
   res.send(`Addition: ${x + y}`);
-  //   res.send("I am a response"); //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+  //   res.send("I am a response");
+  //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
 });
 
 app.post("/post", (req, res) => {
