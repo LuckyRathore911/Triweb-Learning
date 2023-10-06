@@ -1,21 +1,29 @@
 # Triweb-Learning
+
 Web Development Internship at Tri-Web Genesis Pvt. Ltd.
 
 ## Sequential Advancement
 
-* Git and GitHub
+- Git and GitHub
 
-* HTML
-    * Form
+- HTML
 
-* CSS
-    * Form
-    * Time-Table
+  - Form
 
-* JavaScript
+- CSS
 
-* Projects
-    * HTML-CSS-JS-Project
-    * BasicJSProject
+  - Form
+  - Time-Table
 
-* ES6
+- JavaScript
+
+- Projects
+
+  - HTML-CSS-JS-Project
+  - BasicJSProject
+
+- ES6
+
+- MySQL
+
+- NodeJS
