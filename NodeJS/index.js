@@ -1,12 +1,14 @@
 const express = require("express");
 
 const calculatorRouter = require("./routers/calculator");
+const usersRouter = require("./routers/user");
 
 const app = express();
 
 app.use(express.json()); // to parse json data from request body
 
 app.use("/calculator", calculatorRouter);
+app.use("/user", usersRouter);
 
 /*(req,res)=>{} is a middleware function which can access both
 the request from client as well as the response from server
