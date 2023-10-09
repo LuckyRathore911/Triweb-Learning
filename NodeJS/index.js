@@ -1,5 +1,7 @@
 const express = require("express");
 
+require('dotenv').config();
+
 const calculatorRouter = require("./routers/calculator");
 const usersRouter = require("./routers/user");
 
