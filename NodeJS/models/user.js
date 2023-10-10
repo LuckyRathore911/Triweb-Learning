@@ -22,3 +22,39 @@ module.exports.createUser = async (userData) => {
 
   return id;
 };
+
+module.exports.getUser = async (userData) => {
+  let returnData = "";
+  try {
+    let query = "select * from userNodeJS where id=?";
+    let result = await database.execute(query, [userData.id]);
+    returnData = result[0][0];
+    console.log(returnData);
+  } catch (error) {
+    console.log(error);
+  }
+  return returnData;
+};
+
+module.exports.updateUser = async (userData) => {
+  try {
+    let query = "update userNodeJS set password=? where id=?";
+    await database.execute(query, [userData.password, userData.id]);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+module.exports.deleteUser = async (userData) => {
+
+  try {
+    let query = "delete from userNodeJS where id=?";
+    await database.execute(query, [userData.id]);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
