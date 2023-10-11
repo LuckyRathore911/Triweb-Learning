@@ -10,3 +10,6 @@ REPL = Read Evaluate Print Loop
 
 - npm init
 - npm install --save express
+- npm install --save mysql2
+- npm install dotenv
+- npm install --save sequelize
