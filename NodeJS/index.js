@@ -1,9 +1,10 @@
 const express = require("express");
 
-require('dotenv').config();
+require("dotenv").config();
 
 const calculatorRouter = require("./routers/calculator");
 const usersRouter = require("./routers/user");
+const productRouter = require("./routers/product");
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json()); // to parse json data from request body
 
 app.use("/calculator", calculatorRouter);
 app.use("/user", usersRouter);
+app.use("/product", productRouter);
 
 /*(req,res)=>{} is a middleware function which can access both
 the request from client as well as the response from server
