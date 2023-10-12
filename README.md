@@ -21,6 +21,7 @@ Web Development Internship at Tri-Web Genesis Pvt. Ltd.
 
   - HTML-CSS-JS-Project
   - BasicJSProject
+  - BasicNodeJS
 
 - ES6
 
