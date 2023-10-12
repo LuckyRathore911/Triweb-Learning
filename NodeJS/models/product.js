@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 const database = require("../util/productDB");
 
-//model name as 'product' means database will be 'products'
+//model name as 'product' means table will be 'products'
 const product = database.define("product", {
   id: {
     type: Sequelize.INTEGER,
