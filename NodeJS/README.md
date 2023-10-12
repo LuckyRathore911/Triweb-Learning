@@ -13,3 +13,9 @@ REPL = Read Evaluate Print Loop
 - npm install --save mysql2
 - npm install dotenv
 - npm install --save sequelize
+
+### Debugging
+
+- node --inspect=3006 index.js
+
+- brave://inspect/#devices > configure > localhost:3006 > Ctrl+P > index.js
