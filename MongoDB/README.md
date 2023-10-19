@@ -5,6 +5,7 @@ _MongoDB is a source-available cross-platform document-oriented database program
 ## Commands
 
 **To connect to the MongoDB cluster using shell enter the following command in command prompt, hit enter and then enter password:**
+
 `mongosh "mongodb+srv://triweb-cluster.bmmtese.mongodb.net/" --apiVersion 1 --username luckyrathoreofficial`
 
 **To view all databases in the current cluster:**
@@ -18,9 +19,11 @@ _MongoDB is a source-available cross-platform document-oriented database program
 `show collections`
 
 **To insert a record; can also create the collection if not already present:**
+
 `db.firstCollection.insertOne({name:"Lucky",UG:"BTech CST"})`
 
 **To insert many records:**
+
 `db.firstCollection.insertMany([{name:"Anamika",mobile:"9999999999"},{name:"Aakarsh",email:"aakarsh@gmail.com",phone:"8888888888"}])`
 
 **To view all records:**
@@ -51,6 +54,7 @@ _MongoDB is a source-available cross-platform document-oriented database program
 `db.customers.updateOne({_id:ObjectId("6530118ac0b4b3d97aeb9e95")},{$set:{favouriteBooks:[ObjectId("6530141bc0b4b3d97aeb9e9c"),ObjectId("6530141bc0b4b3d97aeb9e9e")]}})`
 
 **Aggregate Function to join data from 2 tables:**
+
 `db.customers.aggregate([{$lookup:{from:"books",localField:"favouriteBooks",foreignField:"_id",as:"Customer's Favourite Books"}}])`
 
 **Validation in Schema:**
@@ -87,10 +91,21 @@ db.createCollection('products',{validator:{
 **Ordered Insert:**
 
 _If validation fails in one insertion then previous insertions are not reverted and the record after failed validation is also not inserted. Title in second record is missing so it inserts only the first record and skips second as well as third record._
-`db.products.insertMany([{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e95"),comments:"8 GB RAM"},{name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e96"),comments:"8 GB RAM"},{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e97"),comments:"i3 Processor"}])`
+
+```bash
+db.products.insertMany([{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e95"),comments:"8 GB RAM"},
+{name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e96"),comments:"8 GB RAM"},
+{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e97"),comments:"i3 Processor"}])
+```
 
 **Handling ordered insert:**
-`db.products.insertMany([{name:"Phone",owner:ObjectId("6530118ac0b4b3d97aeb9e97"),comments:"2 GB RAM"},{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e96"),comments:"Black with backlit keyboard"},{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e95"),comments:"i7 Processor"}],{ordered:false})`
+
+```bash
+db.products.insertMany([{name:"Phone",owner:ObjectId("6530118ac0b4b3d97aeb9e97"),comments:"2 GB RAM"},
+{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e96"),comments:"Black with backlit keyboard"},
+{title:"Gadget",name:"Laptop",owner:ObjectId("6530118ac0b4b3d97aeb9e95"),comments:"i7 Processor"}],
+{ordered:false})
+```
 
 **Operators:**
 
