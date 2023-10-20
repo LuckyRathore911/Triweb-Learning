@@ -47,8 +47,50 @@ Add environment variables in nodemon.json file like this:
 
 To add TypeScript to the project:
 
-`yarn add typescript`
+```bash
+yarn add typescript
+```
 
 To initialize TypeScript:
 
-`tsc --init`
+```bash
+tsc --init
+```
+
+To let TypeScript know node and express
+
+```bash
+yarn add --dev @types/node
+yarn add --dev @types/express
+```
+
+Uncommment, modify or add the following in tsconfig.json:
+
+```bash
+"target": "es6",
+"lib": ["ES6"],
+"moduleResolution": "node10",
+"outDir": "./dist",
+"allowSyntheticDefaultImports": true,
+
+,
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+
+```
+
+Transcompiler/ Transpiler:
+`tsc`
+
+Add scripts to package.json as following:
+
+```bash
+,
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon ./dist/index.js",
+    "build":"tsc"
+  }
+```

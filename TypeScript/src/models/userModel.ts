@@ -1,5 +1,5 @@
-const addUserToDB = (userName, password) => {
+const addUserToDB = (userName:string, password:string) => {
   return `Successfull Registration! ${userName} ${password}`;
 };
 
-module.exports = { addUserToDB };
+export { addUserToDB };

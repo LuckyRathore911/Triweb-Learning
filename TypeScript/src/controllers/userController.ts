@@ -1,10 +1,12 @@
-const { addUserToDB } = require("../models/userModel");
+import { Request, Response } from 'express'
 
-const register = (req, res) => {
-  uname = "Lucky";
-  password = "1234";
+import {addUserToDB} from "../models/userModel";
+
+const register = (req:Request, res:Response) => {
+  let uname = "Lucky";
+  let password = "1234";
   let result = addUserToDB(uname, password);
   res.send(result);
 };
 
-module.exports = { register };
+export default register;
