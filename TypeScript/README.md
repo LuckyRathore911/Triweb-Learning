@@ -34,3 +34,13 @@ Command to run the project after defining script:
 ```bash
 yarn start:dev
 ```
+
+Add environment variables in nodemon.json file like this:
+
+```bash
+{
+  "env":{
+      "PORT": ---
+  }
+}
+```
