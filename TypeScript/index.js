@@ -1,11 +1,11 @@
 const express = require("express");
 
+const { router } = require("./routes/userRouter");
+
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send(req.body);
-});
+app.use("/user", router);
 
 app.listen(3000);
