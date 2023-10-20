@@ -6,13 +6,14 @@
   "author": "Lucky Rathore",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
-  "scripts":{
-    "start":"node index.js",
-    "start:dev":"nodemon index.js"
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
   }
 }

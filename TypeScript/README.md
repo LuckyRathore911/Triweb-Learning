@@ -44,3 +44,11 @@ Add environment variables in nodemon.json file like this:
   }
 }
 ```
+
+To add TypeScript to the project:
+
+`yarn add typescript`
+
+To initialize TypeScript:
+
+`tsc --init`
