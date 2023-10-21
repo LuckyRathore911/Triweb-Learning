@@ -9,7 +9,7 @@ interface User {
   age: number
 }
 
-const updateUserInDB = (singleUser: User) => {
+const updateUserInDB = (singleUser: User): string => { //function return type
   return `Updated User ${singleUser.name}`
 };
 
