@@ -78,6 +78,16 @@ const classCheck = () => {
     pt1.y = 2;
     console.log(pt1); //Point1 { x: 1, y: 2 }  // Type will be decided with intialization in class
 
+    //--- Case 3, Constructor
+    class Point2 {
+        x: number;
+        constructor(n: number) {
+            this.x = n;
+        }
+    }
+    const pt2 = new Point2(3);
+    console.log(pt2); //Point2 { x: 3 }
+
 };
 
 classCheck();
