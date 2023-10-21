@@ -16,6 +16,17 @@ const ClassStructVsInterface = () => {
     let p1: Point = { x: 100, y: 100 };
     let p2: Point;
 
+    //Interface merging
+    interface myNewInterface {
+        age: number;
+        id: number;
+    }
+    interface myNewInterface {  //This merges with the already created interface
+        name: string;
+    }
+    let user: myNewInterface = { name: "Lucky", age: 22, id: 36 }
+    console.log("User: ", user);  // User:  { name: 'Lucky', age: 22, id: 36 }
+
     //type alias
     type MyPoint = {
         x: number;
@@ -118,5 +129,6 @@ const classCheck = () => {
     console.log(stu); //Student { _tag_name: '#Lucky', _standard: 4 }
     console.log(stu.tagName); //#Lucky
 };
-
+ClassStructVsInterface();
+typeInDetail();
 classCheck();
