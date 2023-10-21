@@ -17,6 +17,6 @@
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon ./dist/index.js",
-    "build":"tsc"
+    "build":"tsc --noEmitOnError"
   }
 }
