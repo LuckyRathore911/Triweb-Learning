@@ -88,6 +88,35 @@ const classCheck = () => {
     const pt2 = new Point2(3);
     console.log(pt2); //Point2 { x: 3 }
 
+    //--- Case 4, Getters / Setters
+    class Student {
+        private _tag_name: String = "";
+        private _standard: Number = 0;
+
+        get tagName(): String {
+            // Validation checks
+            return this._tag_name;
+        }
+        set tagName(value: String) {
+            //Validations
+
+            this._tag_name = "#" + value;
+        }
+
+        get standard(): Number {
+            return this._standard;
+        }
+        set standard(value: Number) {
+            this._standard = value;
+        }
+    }
+
+    let stu = new Student();
+    stu.tagName = "Lucky";
+    stu.standard = 4;
+
+    console.log(stu); //Student { _tag_name: '#Lucky', _standard: 4 }
+    console.log(stu.tagName); //#Lucky
 };
 
 classCheck();
