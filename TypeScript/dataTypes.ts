@@ -68,6 +68,16 @@ const classCheck = () => {
     // pt.y = 2;
     console.log(pt); //Point { x: 0, y: 0 }  // No error, either you assing value or not
 
+    //--- Case2, Type will be decided with intialization
+    class Point1 {
+        x = 0;
+        y = 0;
+    }
+    const pt1 = new Point1();
+    pt1.x = 1;
+    pt1.y = 2;
+    console.log(pt1); //Point1 { x: 1, y: 2 }  // Type will be decided with intialization in class
+
 };
 
 classCheck();
