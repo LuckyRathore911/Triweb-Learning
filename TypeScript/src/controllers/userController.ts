@@ -14,11 +14,18 @@ const register = (req: Request, res: Response) => {
 };
 
 const updateUser = (req: Request, res: Response) => {
+
+  type lockedState = "locked" | "unlocked";  //should be global
+  const state: lockedState = 'locked';
+
   const myUser = {
-    "id": 4,
-    "name": "Lucky",
-    "password": "anyString",
-    "age": 33
+    id: 4,
+    name: "Lucky",
+    password: "anyString",
+    age: 33,
+    isActive: true,
+    isLocked: state,
+    isTrue:0
   }
   const result = updateUserInDB(myUser);
   res.send(result);
