@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { addUserToDB } from "../models/userModel";
+import { addUserToDB, updateUserInDB } from "../models/userModel";
 
 const register = (req: Request, res: Response) => {
 
@@ -13,4 +13,15 @@ const register = (req: Request, res: Response) => {
   res.send(result);
 };
 
-export default register;
+const updateUser = (req: Request, res: Response) => {
+  const myUser = {
+    "id": 4,
+    "name": "Lucky",
+    "password": "anyString",
+    "age": 33
+  }
+  const result = updateUserInDB(myUser);
+  res.send(result);
+}
+
+export { register, updateUser };

@@ -1,9 +1,10 @@
 import express from "express";
 
-import register from "../controllers/userController";
+import { register, updateUser } from "../controllers/userController";
 
 const router = express.Router();
 
 router.post("/register", register);
+router.post("/update", updateUser);
 
-export default  router ;
+export default router;
