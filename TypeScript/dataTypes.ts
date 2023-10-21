@@ -40,18 +40,34 @@ const ClassStructVsInterface = () => {
 const typeInDetail = () => {
     // ----Union Type
     let id: number | string = 2;
-    let x: string[] | string = ["@", "e"];  // ="" will also be accepted
+    let x: string[] | string = ["@", "e"]; // ="" will also be accepted
 
     //----Mapped Type
     type OnlyBoolsAndHorses = {
-        [key: string]: boolean | "Horse";   //value can either be a boolean or "Horse"
+        [key: string]: boolean | "Horse"; //value can either be a boolean or "Horse"
     };
 
     const abc: OnlyBoolsAndHorses = {
         a: true,
         b: false,
         x: "Horse",
-        3: "Horse"
+        3: "Horse",
     };
 };
 
+const classCheck = () => {
+    //--- Case 1, Initialization is mandatory
+    class Point {
+        // x: number; //Does not work now in the latest versions
+        // y: number;
+        x: number = 0;
+        y: number = 0;
+    }
+    const pt = new Point();
+    // pt.x =1;
+    // pt.y = 2;
+    console.log(pt); //Point { x: 0, y: 0 }  // No error, either you assing value or not
+
+};
+
+classCheck();
