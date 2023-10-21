@@ -129,6 +129,27 @@ const classCheck = () => {
     console.log(stu); //Student { _tag_name: '#Lucky', _standard: 4 }
     console.log(stu.tagName); //#Lucky
 };
+
 ClassStructVsInterface();
 typeInDetail();
 classCheck();
+
+class Employee {
+    ename: string;
+    esalary: number;
+    constructor(name: string, salary: number) {
+        this.ename = name;
+        this.esalary = salary;
+    }
+}
+class EmployeeWithAge extends Employee {
+    age: Number = 0;
+}
+const inheritance = () => {
+    const employee = new EmployeeWithAge("Lucky", 200000)
+    employee.esalary = 500000;
+    employee.age = 22;
+    console.log(employee)
+}
+
+inheritance();  //EmployeeWithAge { ename: 'Lucky', esalary: 500000, age: 22 }
