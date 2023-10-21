@@ -84,6 +84,10 @@ Uncommment, modify or add the following in tsconfig.json:
 Transcompiler/ Transpiler:
 `tsc`
 
+or
+
+`tsc --noEmitOnError` which does not produce dist folder when there is an error.
+
 Add scripts to package.json as following:
 
 ```bash
