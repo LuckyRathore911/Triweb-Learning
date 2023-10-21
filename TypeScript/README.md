@@ -95,6 +95,31 @@ Add scripts to package.json as following:
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon ./dist/index.js",
-    "build":"tsc"
+    "build":"tsc --noEmitOnError"
   }
 ```
+
+### Things covered in the lectures
+
+- Adding and initializing TypeScript
+- Converting the node.js project to a TypeScript project
+- Adding datatype in front of variables, for example, `:string`
+- Implementing interface
+- Adding return type to a function
+- Implementing union type
+- Read-only property
+- Object types
+- Optional properties
+- Interface
+  - Interface merging
+- Type alias
+- Interface vs type alias
+- Union type
+- Mapped type
+- Learnt about tsc --noEmitOnError
+- Class
+  - With initialized variables
+  - Type will be set with initialization automatically in class
+  - With constructor
+  - Getters and Setters in a class
+- Inheritance, an alias for interface merging in class
