@@ -8,4 +8,6 @@ yarn add typescript
 yarn add express
 tsc --init
 yarn add @types/express
+yarn add mongoose
+yarn add --dev nodemon
 ```
