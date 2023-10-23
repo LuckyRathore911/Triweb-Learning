@@ -11,6 +11,7 @@ yarn add @types/express
 yarn add mongoose
 yarn add --dev ts-node
 yarn add --dev nodemon
+yarn add bcryptjs
 ```
 
 `ts-node` builds automatically while `nodemon` builds as well as executes automatically.

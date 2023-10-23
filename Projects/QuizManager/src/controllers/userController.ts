@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import bcrypt from 'bcryptjs';
 
 import { User } from "../models/userModel";
 
@@ -12,15 +13,14 @@ const userRegister = async (req: Request, res: Response) => {
     let response: ResponseFormat;
     try {
 
-        // base64 encoding of password and sending all values to database.
+        // using bcryptjs to encode password and sending all values to database.
         let name = req.body.name
         let email = req.body.email
         let passwordPlaintext = req.body.password
 
-        let buffer = Buffer.from(passwordPlaintext);
-        let passwordHash = buffer.toString('base64')
+        let passwordHash = await bcrypt.hash(passwordPlaintext, 12)
 
-        const user = new User({ name, email, password:passwordHash });
+        const user = new User({ name, email, password: passwordHash });
 
         // const user = new User(req.body);
 
@@ -42,6 +42,7 @@ const userRegister = async (req: Request, res: Response) => {
             res.send(response);
         }
     } catch (error) {
+        console.log(error)
         response = {
             status: "error",
             data: {},
