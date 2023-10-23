@@ -11,7 +11,19 @@ interface ResponseFormat {
 const userRegister = async (req: Request, res: Response) => {
     let response: ResponseFormat;
     try {
-        const user = new User(req.body);
+
+        // base64 encoding of password and sending all values to database.
+        let name = req.body.name
+        let email = req.body.email
+        let passwordPlaintext = req.body.password
+
+        let buffer = Buffer.from(passwordPlaintext);
+        let passwordHash = buffer.toString('base64')
+
+        const user = new User({ name, email, password:passwordHash });
+
+        // const user = new User(req.body);
+
         const result = await user.save(); //data of the registered user
 
         if (result) {
