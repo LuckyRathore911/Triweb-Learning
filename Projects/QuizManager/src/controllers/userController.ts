@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 import { User } from "../models/userModel";
 
@@ -74,9 +75,11 @@ const userlogin = async (req: Request, res: Response) => {
         // compare input password with that existing in DB using bcryptjs
 
         if (arePasswordsEqual) {
+            const token = jwt.sign({ userId: user!._id }, `${process.env.JWT_SECRET_KEY}`, { expiresIn: "1h" });
+            //creating a token for user login session
             response = {
                 status: "success",
-                data: {},
+                data: { token },
                 message: "Logged In",
             };
             res.status(200).send(response);
