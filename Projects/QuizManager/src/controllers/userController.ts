@@ -70,4 +70,32 @@ const getUser = async (req: Request, res: Response) => {
     }
 };
 
-export { userRegister, getUser };
+const updateUser = async (req: Request, res: Response) => {
+    let response: ResponseFormat;
+    try {
+        const userId = req.body._id;
+        const user = await User.findById(userId); //find the user in DB
+        user!.name = req.body.name; // update the name
+
+        /* !. is a non-null assertion operator that says that we know the user is not null
+            otherwise there was this error: 'user' is possibly 'null'.*/
+
+        await user?.save();
+
+        response = {
+            status: "success",
+            data: {},
+            message: "Updated the User:)",
+        };
+        res.send(response);
+    } catch (error) {
+        response = {
+            status: "error",
+            data: {},
+            message: "Something Went Wrong!",
+        };
+        res.status(500).send(response);
+    }
+};
+
+export { userRegister, getUser, updateUser };
