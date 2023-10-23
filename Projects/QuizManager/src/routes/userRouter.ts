@@ -1,11 +1,10 @@
 import express from "express";
 
-import { userRegister, getUser, updateUser, userlogin } from "../controllers/userController";
+import {  getUser, updateUser } from "../controllers/userController";
 
 const userRouter = express.Router();
 
-userRouter.post("/", userRegister); // register user
-userRouter.post("/login", userlogin); // register user
+//get and update can only be done after authentication and authorization
 userRouter.get("/:userId", getUser); // fetch details of a particular user
 userRouter.put("/", updateUser); // update details of a particular user
 
