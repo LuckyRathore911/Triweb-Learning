@@ -52,6 +52,54 @@ const userRegister = async (req: Request, res: Response) => {
     }
 };
 
+const userlogin = async (req: Request, res: Response) => {
+    let response: ResponseFormat;
+    try {
+
+        let email = req.body.email;
+        let password = req.body.password;
+
+        const user = await User.findOne({ email }); //find user by email id
+
+        if (!user) {
+            response = {
+                status: "error",
+                data: {},
+                message: "No such user exists!",
+            };
+            res.status(401).send(response);
+        }
+
+        const arePasswordsEqual = await bcrypt.compare(password, user!.password)
+        // compare input password with that existing in DB using bcryptjs
+
+        if (arePasswordsEqual) {
+            response = {
+                status: "success",
+                data: {},
+                message: "Logged In",
+            };
+            res.status(200).send(response);
+        } else {
+            response = {
+                status: "error",
+                data: {},
+                message: "Credentials didn't match!",
+            };
+            res.status(401).send(response);
+        }
+    }
+    catch (error) {
+        console.log(error)
+        response = {
+            status: "error",
+            data: {},
+            message: "Something Went Wrong",
+        };
+        res.status(500).send(response);
+    }
+};
+
 const getUser = async (req: Request, res: Response) => {
     let response: ResponseFormat;
     const userId = await req.params.userId; // userId in params refers to userId in '/:userId'
@@ -111,4 +159,4 @@ const updateUser = async (req: Request, res: Response) => {
     }
 };
 
-export { userRegister, getUser, updateUser };
+export { userRegister, getUser, updateUser, userlogin };
