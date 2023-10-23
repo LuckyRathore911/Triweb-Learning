@@ -13,9 +13,12 @@
   },
   "scripts": {
     "build": "tsc --noEmitOnError",
-    "start:dev": "nodemon ./dist/index.js"
+    "start": "node ./dist/index.js",
+    "start:ts": "ts-node ./src/index.ts",
+    "start:dev": "nodemon"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
   }
 }
