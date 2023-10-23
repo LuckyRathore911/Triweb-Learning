@@ -11,6 +11,9 @@ yarn add @types/express
 yarn add mongoose
 yarn add --dev ts-node
 yarn add --dev nodemon
+yarn add bcryptjs
+yarn add jsonwebtoken   
+yarn add @types/jsonwebtoken
 ```
 
 `ts-node` builds automatically while `nodemon` builds as well as executes automatically.
@@ -29,3 +32,6 @@ yarn add --dev nodemon
 }
 
 ```
+
+`https://www.base64decode.org/` to decode base64 encoded password
+`https://jwt.io/` to decode token
