@@ -35,3 +35,7 @@ yarn add @types/jsonwebtoken
 
 `https://www.base64decode.org/` to decode base64 encoded password
 `https://jwt.io/` to decode token
+
+Steps for authentication and authorization using jwt token:
+- Add the token generated during login to the bearer token in Authorization for "get user API" in Postman.
+- Get this header using `req.get('Authorization')` in code.
