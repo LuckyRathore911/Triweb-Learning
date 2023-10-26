@@ -9,15 +9,17 @@ interface ResponseFormat {
 }
 
 const getUser = async (req: Request, res: Response) => {
-    // console.log(req.userId);
+
     let response: ResponseFormat;
+
     try {
-        const userId = req.params.userId; // userId in params refers to userId in '/:userId'
-        const user = await User.findById(userId, { name: 1, email: 1 }); // to fetch name and email only
         if (req.userId != req.params.userId) {
             throw new Error("Not authorized!");
-           
         }
+
+        const userId = req.params.userId; // userId in params refers to userId in '/:userId'
+        const user = await User.findById(userId, { name: 1, email: 1 }); // to fetch name and email only
+
         if (user) {
             response = {
                 status: "success",
@@ -33,6 +35,7 @@ const getUser = async (req: Request, res: Response) => {
             };
             res.send(response);
         }
+
     } catch (error) {
         response = {
             status: "error",
@@ -45,8 +48,14 @@ const getUser = async (req: Request, res: Response) => {
 };
 
 const updateUser = async (req: Request, res: Response) => {
+
     let response: ResponseFormat;
+
     try {
+        if (req.userId != req.body._id) {
+            throw new Error("Not authorized!");
+        }
+
         const userId = req.body._id;
         const user = await User.findById(userId); //find the user in DB
         user!.name = req.body.name; // update the name
@@ -62,12 +71,14 @@ const updateUser = async (req: Request, res: Response) => {
             message: "Updated the User:)",
         };
         res.send(response);
+
     } catch (error) {
         response = {
             status: "error",
             data: {},
             message: "Something Went Wrong!",
         };
+        console.log(error)
         res.status(500).send(response);
     }
 };
