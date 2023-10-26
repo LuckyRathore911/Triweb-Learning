@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken';
 
+
 const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
 
-    let secretKey = process.env.JWT_SECRET_KEY;
-    let decodedToken
+    let secretKey = process.env.JWT_SECRET_KEY || "";
+    let decodedToken: { userId: string, iat: number, exp: number }
+
 
     const authHeader = req.get('Authorization');   //get the Authorization value from Header of get User API
 
@@ -13,18 +15,17 @@ const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
     }
     const token = authHeader?.split(' ')[1]  // [0] is Bearer, [1] is the token from login
 
-    try {
-        if (token && secretKey) {
-            decodedToken = jwt.verify(token, secretKey)
-        }
-    } catch (error) {
-        throw new Error("Not Authenticated! jwt verification exception!")
+
+    if (!token || !secretKey) {
+        throw new Error("Not Authenticated!")
     }
+    decodedToken = <any>jwt.verify(token, secretKey)
+
     if (!decodedToken) {
         throw new Error("Not Authenticated! decodedToken not found!")
     }
+    req.userId = decodedToken.userId;  //the user who has logged in
 
-    console.log(decodedToken)
     next();  //executes the next middleware present: ("/:userId", isAuthenticated, getUser) in router
 }
 export default isAuthenticated;

@@ -8,12 +8,16 @@ interface ResponseFormat {
     message: string;
 }
 
-
 const getUser = async (req: Request, res: Response) => {
+    // console.log(req.userId);
     let response: ResponseFormat;
-    const userId = await req.params.userId; // userId in params refers to userId in '/:userId'
-    const user = await User.findById(userId, { name: 1, email: 1 }); // to fetch name and email only
     try {
+        const userId = req.params.userId; // userId in params refers to userId in '/:userId'
+        const user = await User.findById(userId, { name: 1, email: 1 }); // to fetch name and email only
+        if (req.userId != req.params.userId) {
+            throw new Error("Not authorized!");
+           
+        }
         if (user) {
             response = {
                 status: "success",
@@ -35,7 +39,7 @@ const getUser = async (req: Request, res: Response) => {
             data: {},
             message: "Something Went Wrong!",
         };
-        // console.log(error);
+        console.log(error);
         res.status(500).send(response);
     }
 };
@@ -68,4 +72,4 @@ const updateUser = async (req: Request, res: Response) => {
     }
 };
 
-export {  getUser, updateUser };
+export { getUser, updateUser };
