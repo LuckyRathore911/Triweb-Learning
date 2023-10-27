@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 import { User } from "../models/userModel";
 
@@ -8,7 +8,7 @@ interface ResponseFormat {
     message: string;
 }
 
-const getUser = async (req: Request, res: Response) => {
+const getUser = async (req: Request, res: Response, next: NextFunction) => {
 
     let response: ResponseFormat;
 
@@ -37,17 +37,11 @@ const getUser = async (req: Request, res: Response) => {
         }
 
     } catch (error) {
-        response = {
-            status: "error",
-            data: {},
-            message: "Something Went Wrong!",
-        };
-        console.log(error);
-        res.status(500).send(response);
+        next(error);  // redirecting the error to the error route
     }
 };
 
-const updateUser = async (req: Request, res: Response) => {
+const updateUser = async (req: Request, res: Response, next: NextFunction) => {
 
     let response: ResponseFormat;
 
@@ -73,13 +67,14 @@ const updateUser = async (req: Request, res: Response) => {
         res.send(response);
 
     } catch (error) {
-        response = {
-            status: "error",
-            data: {},
-            message: "Something Went Wrong!",
-        };
-        console.log(error)
-        res.status(500).send(response);
+        // response = {
+        //     status: "error",
+        //     data: {},
+        //     message: "Something Went Wrong!",
+        // };
+        // console.log(error)
+        // res.status(500).send(response);
+        next(error); // redirecting the error to the error route
     }
 };
 

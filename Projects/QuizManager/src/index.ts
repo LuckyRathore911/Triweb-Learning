@@ -1,4 +1,6 @@
 import express from "express";
+import { Request, Response, NextFunction } from 'express'
+
 import mongoose from "mongoose"
 
 import { userRouter } from './routes/userRouter'
@@ -22,6 +24,12 @@ declare global {
 //Redirect to a particular endpoint
 app.use('/user', userRouter)
 app.use('/auth', authRouter)
+
+//error route
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    console.log(err);
+    res.send("Something went wrong! Please try again later.");
+})
 
 mongoose.connect(connectionString)
     .then(() => {

@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
@@ -10,7 +10,7 @@ interface ResponseFormat {
     message: string;
 }
 
-const userRegister = async (req: Request, res: Response) => {
+const userRegister = async (req: Request, res: Response, next: NextFunction) => {
     let response: ResponseFormat;
     try {
 
@@ -43,17 +43,11 @@ const userRegister = async (req: Request, res: Response) => {
             res.send(response);
         }
     } catch (error) {
-        console.log(error)
-        response = {
-            status: "error",
-            data: {},
-            message: "Something Went Wrong",
-        };
-        res.status(500).send(response);
+        next(error);
     }
 };
 
-const userlogin = async (req: Request, res: Response) => {
+const userlogin = async (req: Request, res: Response, next: NextFunction) => {
     let response: ResponseFormat;
     try {
 
@@ -93,13 +87,7 @@ const userlogin = async (req: Request, res: Response) => {
         }
     }
     catch (error) {
-        console.log(error)
-        response = {
-            status: "error",
-            data: {},
-            message: "Something Went Wrong",
-        };
-        res.status(500).send(response);
+        next(error);
     }
 };
 
