@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 
 import { User } from "../models/userModel";
+import QuizError from '../helpers/errorClass';
 
 interface ResponseFormat {
     status: "success" | "error";
-    data: {};
+    data: {} | [];
     message: string;
 }
 
@@ -14,7 +15,9 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
         if (req.userId != req.params.userId) {
-            throw new Error("Not authorized!");
+            const err = new QuizError("Not authorized!");
+            err.statusCode = 401;
+            throw err;
         }
 
         const userId = req.params.userId; // userId in params refers to userId in '/:userId'
@@ -26,14 +29,11 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
                 data: user,
                 message: "Found the User:)",
             };
-            res.send(response);
+            res.status(200).send(response);
         } else {
-            response = {
-                status: "error",
-                data: {},
-                message: "User not found!",
-            };
-            res.send(response);
+            const err = new QuizError("User not found!");
+            err.statusCode = 401;
+            throw err;
         }
 
     } catch (error) {
@@ -47,7 +47,9 @@ const updateUser = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
         if (req.userId != req.body._id) {
-            throw new Error("Not authorized!");
+            const err = new QuizError("Not authorized!");
+            err.statusCode = 401;
+            throw err;
         }
 
         const userId = req.body._id;
@@ -64,16 +66,9 @@ const updateUser = async (req: Request, res: Response, next: NextFunction) => {
             data: {},
             message: "Updated the User:)",
         };
-        res.send(response);
+        res.status(200).send(response);
 
     } catch (error) {
-        // response = {
-        //     status: "error",
-        //     data: {},
-        //     message: "Something Went Wrong!",
-        // };
-        // console.log(error)
-        // res.status(500).send(response);
         next(error); // redirecting the error to the error route
     }
 };

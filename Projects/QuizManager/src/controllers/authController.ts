@@ -3,10 +3,11 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 import { User } from "../models/userModel";
+import QuizError from '../helpers/errorClass';
 
 interface ResponseFormat {
     status: "success" | "error";
-    data: {};
+    data: {} | [];
     message: string;
 }
 
@@ -23,24 +24,19 @@ const userRegister = async (req: Request, res: Response, next: NextFunction) => 
 
         const user = new User({ name, email, password: passwordHash });
 
-        // const user = new User(req.body);
-
         const result = await user.save(); //data of the registered user
 
         if (result) {
             response = {
                 status: "success",
                 data: { userId: result._id },
-                message: "Done",
+                message: "Registered",
             };
             res.send(response);
         } else {
-            response = {
-                status: "error",
-                data: {},
-                message: "Not done",
-            };
-            res.send(response);
+            const err = new QuizError("Not registered!");
+            err.statusCode = 401;
+            throw err;
         }
     } catch (error) {
         next(error);
@@ -57,12 +53,9 @@ const userlogin = async (req: Request, res: Response, next: NextFunction) => {
         const user = await User.findOne({ email }); //find user by email id
 
         if (!user) {
-            response = {
-                status: "error",
-                data: {},
-                message: "No such user exists!",
-            };
-            res.status(401).send(response);
+            const err = new QuizError("User does not exist!");
+            err.statusCode = 401;
+            throw err;
         }
 
         const arePasswordsEqual = await bcrypt.compare(password, user!.password)
@@ -78,12 +71,9 @@ const userlogin = async (req: Request, res: Response, next: NextFunction) => {
             };
             res.status(200).send(response);
         } else {
-            response = {
-                status: "error",
-                data: {},
-                message: "Credentials didn't match!",
-            };
-            res.status(401).send(response);
+            const err = new QuizError("Credentials didn't match!");
+            err.statusCode = 401;
+            throw err;
         }
     }
     catch (error) {

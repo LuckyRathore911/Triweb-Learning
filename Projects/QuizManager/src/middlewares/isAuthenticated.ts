@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken';
-
+import QuizError from '../helpers/errorClass';
 
 const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
 
@@ -10,17 +10,23 @@ const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
         const authHeader = req.get('Authorization');   //get the Authorization value from Header of get User API
 
         if (!authHeader) {
-            throw new Error("Not Authenticated! No authorization header found!")
+            const err = new QuizError("Not authenticated!");
+            err.statusCode = 401;
+            throw err;
         }
         const token = authHeader?.split(' ')[1]  // [0] is Bearer, [1] is the token from login
 
         if (!token || !secretKey) {
-            throw new Error("Not Authenticated!")
+            const err = new QuizError("Not authenticated!");
+            err.statusCode = 401;
+            throw err;
         }
         decodedToken = <any>jwt.verify(token, secretKey)
 
         if (!decodedToken) {
-            throw new Error("Not Authenticated! decodedToken not found!")
+            const err = new QuizError("Not authenticated!");
+            err.statusCode = 401;
+            throw err;
         }
         req.userId = decodedToken.userId;  //the user who has logged in
 
