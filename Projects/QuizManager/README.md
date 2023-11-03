@@ -14,6 +14,7 @@ yarn add --dev nodemon
 yarn add bcryptjs
 yarn add jsonwebtoken   
 yarn add @types/jsonwebtoken
+yarn add express-validator
 ```
 
 `ts-node` builds automatically while `nodemon` builds as well as executes automatically.
@@ -37,5 +38,5 @@ yarn add @types/jsonwebtoken
 `https://jwt.io/` to decode token
 
 Steps for authentication and authorization using jwt token:
-- Add the token generated during login to the bearer token in Authorization for "get user API" in Postman.
+- Add the token generated during login to the bearer token in Authorization for "get user" or "update user" API in Postman.
 - Get this header using `req.get('Authorization')` in code.

@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { validationResult } from "express-validator/src/validation-result";
 
 import { User } from "../models/userModel";
 import QuizError from '../helpers/errorClass';
@@ -14,6 +15,14 @@ interface ResponseFormat {
 const userRegister = async (req: Request, res: Response, next: NextFunction) => {
     let response: ResponseFormat;
     try {
+        //validation
+        const validationError = validationResult(req)
+        if (!validationError.isEmpty()) {
+            const err = new QuizError("Validation failed!");
+            err.statusCode = 422;
+            err.data = validationError.array();
+            throw err;
+        }
 
         // using bcryptjs to encode password and sending all values to database.
         let name = req.body.name
@@ -81,4 +90,13 @@ const userlogin = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
-export { userRegister, userlogin };
+const doesUserExist = async(email: String) => {
+
+    const user = await User.findOne({ email });
+    if (!user) {
+        return false;
+    }
+    return true;
+}
+
+export { userRegister, userlogin, doesUserExist };
