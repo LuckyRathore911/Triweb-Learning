@@ -48,22 +48,6 @@ Web Development Internship at Tri-Web Genesis Pvt. Ltd.
 
   JavaScript is a versatile, high-level, and widely-used programming language primarily known for its role in web development. It allows developers to add interactivity and dynamic behavior to websites and web applications. JavaScript has also found application in various other domains, including server-side programming, mobile app development, and desktop applications.
 
-- **Projects**
-
-  - HTML-CSS-JS-Project
-
-    Added validation to the previously created form.
-
-  - BasicJSProject
-
-    Created a basic project to append an element containing user input to a coloured box, depending on the button clicked by the user.
-
-  - BasicNodeJS
-
-    Created various API endpoints and provided a basic backend logic with sequelize for database operations.
-
-  - QuizManager
-
 - **ES6**
 
   ECMAScript is the standardization of Javascript which was released in 2015 and subsequently renamed as ECMAScript 2015. ECMAScript 6 (ES6), also known as ECMAScript 2015, is a major update to the JavaScript language specification. It introduced many new features and enhancements to the language, making JavaScript more powerful and expressive.
@@ -83,3 +67,19 @@ Web Development Internship at Tri-Web Genesis Pvt. Ltd.
 - **TypeScript**
 
   TypeScript is an open-source, strongly typed, high-level programming language that builds upon and extends JavaScript. It transpiles to JavaScript and is designed to help developers write more robust and maintainable code by adding static typing and other features.
+
+## Projects
+
+- **HTML-CSS-JS-Project**
+
+  Added validation to the previously created form.
+
+- **BasicJSProject**
+
+  Created a basic project to append an element containing user input to a coloured box, depending on the button clicked by the user.
+
+- **BasicNodeJS**
+
+  Created various API endpoints and provided a basic backend logic with sequelize for database operations.
+
+- **QuizManager**
