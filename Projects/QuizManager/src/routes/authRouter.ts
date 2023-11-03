@@ -15,9 +15,9 @@ authRouter.post("/", [
     body("email")
         .trim()
         .isEmail()
-        .custom(emailId => {
+        .custom((emailId:String) => {
             return doesUserExist(emailId)
-                .then(status => {
+                .then((status:Boolean) => {
                     if (status) {
                         return Promise.reject("User already exists!")
                     }
@@ -33,7 +33,7 @@ authRouter.post("/", [
         .withMessage("Enter at least 8 characters long password!"),
     body("confirm_password")
         .trim()
-        .custom((value, { req }) => {
+        .custom((value:String, { req }) => {
             if (value != req.body.password) {
                 return Promise.reject("Passwords do not match!")
             }
