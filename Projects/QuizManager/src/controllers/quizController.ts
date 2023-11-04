@@ -30,11 +30,17 @@ const createQuiz = async (req: Request, res: Response, next: NextFunction) => {
 const getQuiz = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const quizId = req.params.quizId;
-        const quiz = await Quiz.findById(quizId, { name: 1, questions_list: 1, answers: 1 }); //projection
+        const quiz = await Quiz.findById(quizId, { name: 1, questions_list: 1, answers: 1, created_by: 1 }); //projection
 
         if (!quiz) {
             const err = new QuizError("Quiz Not Found!");
             err.statusCode = 404;
+            throw err;
+        }
+
+        if (req.userId !== quiz.created_by.toString()) {
+            const err = new QuizError("You are not Authorized!");
+            err.statusCode = 403;
             throw err;
         }
 
@@ -57,6 +63,12 @@ const updateQuiz = async (req: Request, res: Response, next: NextFunction) => {
             throw err;
         }
 
+        if (req.userId !== quiz.created_by.toString()) {
+            const err = new QuizError("You are not Authorized!");
+            err.statusCode = 403;
+            throw err;
+        }
+
         quiz.name = req.body.name
         quiz.questions_list = req.body.questions_list
         quiz.answers = req.body.answers
@@ -74,6 +86,14 @@ const updateQuiz = async (req: Request, res: Response, next: NextFunction) => {
 const deleteQuiz = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const quizId = req.params.quizId;
+        const quiz = await Quiz.findById(quizId);
+
+        if (req.userId !== quiz!.created_by.toString()) {
+            const err = new QuizError("You are not Authorized!");
+            err.statusCode = 403;
+            throw err;
+        }
+
         await Quiz.deleteOne({ _id: quizId });
 
         const resp: ResponseFormat = { status: "success", data: {}, message: "Quiz deleted successfully!" };
@@ -92,6 +112,12 @@ const publishQuiz = async (req: Request, res: Response, next: NextFunction) => {
         if (!quiz) {
             const err = new QuizError("Quiz Not Found!");
             err.statusCode = 404;
+            throw err;
+        }
+
+        if (req.userId !== quiz.created_by.toString()) {
+            const err = new QuizError("You are not Authorized!");
+            err.statusCode = 403;
             throw err;
         }
 
