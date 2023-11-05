@@ -5,6 +5,6 @@ import isAuthenticated from '../middlewares/isAuthenticated'
 
 const reportRouter = express.Router();
 
-reportRouter.get('/:reportId',isAuthenticated, getReport)
+reportRouter.get('/:reportId?', isAuthenticated, getReport)  //variable parameter
 
 export default reportRouter;
