@@ -1,16 +1,11 @@
-import { NextFunction, Request, Response } from 'express';
+import { RequestHandler } from 'express';
 import { validationResult } from "express-validator/src/validation-result";
 
 import Quiz from '../models/quizModel';
 import QuizError from '../helpers/errorClass';
+import ResponseFormat from '../utils/responseInterface'
 
-interface ResponseFormat {
-    status: "success" | "error";
-    data: {} | [];
-    message: string;
-}
-
-const createQuiz = async (req: Request, res: Response, next: NextFunction) => {
+const createQuiz: RequestHandler = async (req, res, next) => {
     try {
         const name = req.body.name;
         const questions_list = req.body.questions_list;
@@ -37,7 +32,7 @@ const createQuiz = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-const getQuiz = async (req: Request, res: Response, next: NextFunction) => {
+const getQuiz: RequestHandler = async (req, res, next) => {
     try {
         const quizId = req.params.quizId;
         const quiz = await Quiz.findById(quizId, { name: 1, questions_list: 1, answers: 1, created_by: 1 }); //projection
@@ -62,7 +57,7 @@ const getQuiz = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-const updateQuiz = async (req: Request, res: Response, next: NextFunction) => {
+const updateQuiz: RequestHandler = async (req, res, next) => {
     try {
         const quizId = req.body._id;
         const quiz = await Quiz.findById(quizId);
@@ -108,7 +103,7 @@ const updateQuiz = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-const deleteQuiz = async (req: Request, res: Response, next: NextFunction) => {
+const deleteQuiz: RequestHandler = async (req, res, next) => {
     try {
         const quizId = req.params.quizId;
         const quiz = await Quiz.findById(quizId);
@@ -135,7 +130,7 @@ const deleteQuiz = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-const publishQuiz = async (req: Request, res: Response, next: NextFunction) => {
+const publishQuiz: RequestHandler = async (req, res, next) => {
     try {
         const quizId = req.body.quizId;
         const quiz = await Quiz.findById(quizId);
