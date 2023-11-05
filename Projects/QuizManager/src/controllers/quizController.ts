@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { validationResult } from "express-validator/src/validation-result";
 
 import Quiz from '../models/quizModel';
 import QuizError from '../helpers/errorClass';
@@ -15,6 +16,15 @@ const createQuiz = async (req: Request, res: Response, next: NextFunction) => {
         const questions_list = req.body.questions_list;
         const answers = req.body.answers;
         const created_by = req.userId;  //from isAuthenticated
+
+        //validation
+        const validationError = validationResult(req)
+        if (!validationError.isEmpty()) {
+            const err = new QuizError("Validation failed!");
+            err.statusCode = 422;
+            err.data = validationError.array();
+            throw err;
+        }
 
         const quiz = new Quiz({ name, questions_list, answers, created_by });
         const result = await quiz.save();
@@ -57,6 +67,15 @@ const updateQuiz = async (req: Request, res: Response, next: NextFunction) => {
         const quizId = req.body._id;
         const quiz = await Quiz.findById(quizId);
 
+        //validation
+        const validationError = validationResult(req)
+        if (!validationError.isEmpty()) {
+            const err = new QuizError("Validation failed!");
+            err.statusCode = 422;
+            err.data = validationError.array();
+            throw err;
+        }
+
         if (!quiz) {
             const err = new QuizError("Quiz Not Found!");
             err.statusCode = 404;
@@ -94,7 +113,7 @@ const deleteQuiz = async (req: Request, res: Response, next: NextFunction) => {
         const quizId = req.params.quizId;
         const quiz = await Quiz.findById(quizId);
 
-        if (req.userId !== quiz!.created_by?.toString()) {
+        if (req.userId !== quiz!.created_by.toString()) {
             const err = new QuizError("You are not Authorized!");
             err.statusCode = 403;
             throw err;
