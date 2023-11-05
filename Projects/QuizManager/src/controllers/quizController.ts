@@ -69,6 +69,12 @@ const updateQuiz = async (req: Request, res: Response, next: NextFunction) => {
             throw err;
         }
 
+        if (quiz.is_published) {
+            const err = new QuizError("You can not update a published quiz!");
+            err.statusCode = 405;
+            throw err;
+        }
+
         quiz.name = req.body.name
         quiz.questions_list = req.body.questions_list
         quiz.answers = req.body.answers
@@ -88,9 +94,15 @@ const deleteQuiz = async (req: Request, res: Response, next: NextFunction) => {
         const quizId = req.params.quizId;
         const quiz = await Quiz.findById(quizId);
 
-        if (req.userId !== quiz!.created_by.toString()) {
+        if (req.userId !== quiz!.created_by?.toString()) {
             const err = new QuizError("You are not Authorized!");
             err.statusCode = 403;
+            throw err;
+        }
+
+        if (quiz!.is_published) {
+            const err = new QuizError("You can not delete a published quiz!");
+            err.statusCode = 405;
             throw err;
         }
 
