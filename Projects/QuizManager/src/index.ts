@@ -6,6 +6,7 @@ import mongoose from "mongoose"
 import { userRouter } from './routes/userRouter'
 import { authRouter } from './routes/authRouter'
 import quizRouter from './routes/quizRouter'
+import examRouter from './routes/examRouter'
 
 import QuizError from './helpers/errorClass'
 
@@ -33,6 +34,7 @@ declare global {
 app.use('/user', userRouter)
 app.use('/auth', authRouter)
 app.use('/quiz', quizRouter)
+app.use('/exam', examRouter)
 
 //error route
 app.use((err: QuizError, req: Request, res: Response, next: NextFunction) => {
