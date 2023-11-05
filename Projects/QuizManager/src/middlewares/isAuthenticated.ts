@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction } from 'express'
+import { RequestHandler } from 'express'
 import jwt from 'jsonwebtoken';
 import QuizError from '../helpers/errorClass';
 
-const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
+const isAuthenticated: RequestHandler = (req, res, next) => {
 
     try {
         let secretKey = process.env.JWT_SECRET_KEY || "";

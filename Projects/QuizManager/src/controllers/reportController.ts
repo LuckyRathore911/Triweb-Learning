@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { RequestHandler } from 'express';
 
 import Report from '../models/reportModel';
 import QuizError from '../helpers/errorClass';
@@ -9,7 +9,7 @@ interface ResponseFormat {
     message: string;
 }
 
-const getReport = async (req: Request, res: Response, next: NextFunction) => {
+const getReport: RequestHandler = async (req, res, next) => {
     try {
 
         let report

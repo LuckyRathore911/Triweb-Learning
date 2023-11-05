@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { RequestHandler } from 'express';
 
 import Quiz from '../models/quizModel';
 import QuizError from '../helpers/errorClass';
@@ -10,7 +10,7 @@ interface ResponseFormat {
     message: string;
 }
 
-const startExam = async (req: Request, res: Response, next: NextFunction) => {
+const startExam: RequestHandler = async (req, res, next) => {
     try {
         const quizId = req.params.quizId
         const quiz = await Quiz.findById(quizId, { name: 1, questions_list: 1, is_published: 1 });
@@ -34,7 +34,7 @@ const startExam = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-const submitExam = async (req: Request, res: Response, next: NextFunction) => {
+const submitExam: RequestHandler = async (req, res, next) => {
     try {
         const quizId = req.body.quizId
         const attempted_questions = req.body.attempted_questions

@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from "express";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { validationResult } from "express-validator/src/validation-result";
+import { RequestHandler } from "express";
 
 import { User } from "../models/userModel";
 import QuizError from '../helpers/errorClass';
@@ -12,7 +12,7 @@ interface ResponseFormat {
     message: string;
 }
 
-const userRegister = async (req: Request, res: Response, next: NextFunction) => {
+const userRegister: RequestHandler = async (req, res, next) => {
     let response: ResponseFormat;
     try {
         //validation
@@ -52,7 +52,7 @@ const userRegister = async (req: Request, res: Response, next: NextFunction) => 
     }
 };
 
-const userlogin = async (req: Request, res: Response, next: NextFunction) => {
+const userlogin: RequestHandler = async (req, res, next) => {
     let response: ResponseFormat;
     try {
 
@@ -90,7 +90,7 @@ const userlogin = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
-const doesUserExist = async(email: String) => {
+const doesUserExist = async (email: String) => {
 
     const user = await User.findOne({ email });
     if (!user) {

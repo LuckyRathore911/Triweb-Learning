@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { RequestHandler } from "express";
 
 import { User } from "../models/userModel";
 import QuizError from '../helpers/errorClass';
@@ -9,7 +9,7 @@ interface ResponseFormat {
     message: string;
 }
 
-const getUser = async (req: Request, res: Response, next: NextFunction) => {
+const getUser: RequestHandler = async (req, res, next) => {
 
     let response: ResponseFormat;
 
@@ -41,7 +41,7 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
-const updateUser = async (req: Request, res: Response, next: NextFunction) => {
+const updateUser: RequestHandler = async (req, res, next) => {
 
     let response: ResponseFormat;
 
