@@ -5,6 +5,8 @@ import mongoose from "mongoose"
 
 import { userRouter } from './routes/userRouter'
 import { authRouter } from './routes/authRouter'
+import quizRouter from './routes/quizRouter'
+
 import QuizError from './helpers/errorClass'
 
 const app = express();
@@ -30,6 +32,7 @@ declare global {
 //Redirect to a particular endpoint
 app.use('/user', userRouter)
 app.use('/auth', authRouter)
+app.use('/quiz', quizRouter)
 
 //error route
 app.use((err: QuizError, req: Request, res: Response, next: NextFunction) => {
