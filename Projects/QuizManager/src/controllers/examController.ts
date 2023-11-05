@@ -3,12 +3,7 @@ import { RequestHandler } from 'express';
 import Quiz from '../models/quizModel';
 import QuizError from '../helpers/errorClass';
 import Report from "../models/reportModel";
-
-interface ResponseFormat {
-    status: "success" | "error";
-    data: {} | [];
-    message: string;
-}
+import ResponseFormat from '../utils/responseInterface'
 
 const startExam: RequestHandler = async (req, res, next) => {
     try {

@@ -2,12 +2,7 @@ import { RequestHandler } from 'express';
 
 import Report from '../models/reportModel';
 import QuizError from '../helpers/errorClass';
-
-interface ResponseFormat {
-    status: "success" | "error";
-    data: {} | [];
-    message: string;
-}
+import ResponseFormat from '../utils/responseInterface'
 
 const getReport: RequestHandler = async (req, res, next) => {
     try {

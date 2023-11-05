@@ -5,12 +5,7 @@ import { RequestHandler } from "express";
 
 import { User } from "../models/userModel";
 import QuizError from '../helpers/errorClass';
-
-interface ResponseFormat {
-    status: "success" | "error";
-    data: {} | [];
-    message: string;
-}
+import ResponseFormat from '../utils/responseInterface'
 
 const userRegister: RequestHandler = async (req, res, next) => {
     let response: ResponseFormat;
