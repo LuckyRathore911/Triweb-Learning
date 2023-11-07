@@ -8,6 +8,7 @@ function NavigationBar() {
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Link to="/contacts">Contacts</Link>
+      <Link to="/products">Products</Link>
     </header>
   );
 }
