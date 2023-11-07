@@ -12,3 +12,5 @@ npm start
 ```bash
 npm install react-router-dom
 ```
+
+We use <Link></Link> instead of <a></a> because it does not reload the page.
