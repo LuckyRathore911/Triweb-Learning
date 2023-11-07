@@ -6,6 +6,7 @@ import UseStateHook from "./components/UseStateHook";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const [state, setState] = useState(true);
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div>
+      <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
