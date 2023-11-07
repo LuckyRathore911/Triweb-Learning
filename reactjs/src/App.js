@@ -1,7 +1,10 @@
+import UnderstandingProps from "./components/UnderstandingProps";
+
 function App() {
   return (
     <div>
-      <h1>Lucky Rathore</h1>
+      <UnderstandingProps message="Hi, there!" />
+      <UnderstandingProps message="Hello guys!" />
     </div>
   );
 }
