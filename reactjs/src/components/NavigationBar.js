@@ -9,6 +9,7 @@ function NavigationBar() {
       <Link to="/about">About</Link>
       <Link to="/contacts">Contacts</Link>
       <Link to="/products">Products</Link>
+      <Link to="/products/add">Add Product</Link>
     </header>
   );
 }

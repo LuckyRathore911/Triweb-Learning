@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Products from "./pages/Products";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   const [state, setState] = useState(true);
@@ -26,6 +27,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/contacts" element={<Contacts />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/products/add" element={<AddProduct />}></Route>
       </Routes>
 
       <UnderstandingProps message="Hi, there!" />
