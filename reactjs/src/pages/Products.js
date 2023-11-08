@@ -1,3 +1,5 @@
+import ProductList from "../components/products/ProductList";
+
 function Products() {
   let listOfItems = [
     {
@@ -20,9 +22,7 @@ function Products() {
   return (
     <div>
       <h1>I am on the Products page.</h1>
-      {listOfItems.map((item) => {
-        return <li key={item.id}>{item.itemName}</li>;
-      })}
+      <ProductList listOfItems={listOfItems} />
     </div>
   );
 }
