@@ -14,3 +14,5 @@ npm install react-router-dom
 ```
 
 We use <Link></Link> instead of <a></a> because it does not reload the page.
+
+Create favicons of images from [this website](https://realfavicongenerator.net/).
