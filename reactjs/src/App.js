@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import MainLayout from "./components/MainLayout";
 import UnderstandingProps from "./components/UnderstandingProps";
 import UseStateHook from "./components/UseStateHook";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Products from "./pages/Products";
-import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const [state, setState] = useState(true);
@@ -20,8 +20,7 @@ function App() {
   }
 
   return (
-    <div>
-      <NavigationBar />
+    <MainLayout>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
@@ -37,7 +36,7 @@ function App() {
       ) : (
         <button onClick={open}>Open</button>
       )}
-    </div>
+    </MainLayout>
   );
 }
 

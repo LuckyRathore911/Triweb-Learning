@@ -1,8 +1,10 @@
+import CustomWrapper from "../CustomWrapper";
+
 function ProductItem(props) {
   return (
-    <div>
+    <CustomWrapper>
       <li key={props.key}>{props.item.itemName}</li>
-    </div>
+    </CustomWrapper>
   );
 }
 
