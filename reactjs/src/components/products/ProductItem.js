@@ -5,7 +5,12 @@ function ProductItem(props) {
     <CustomWrapper>
       <li key={props.key}>
         <h2>{props.item.itemName}</h2>
-        <img src={props.item.image} height="150rem" width="150rem"></img>
+        <img
+          src={props.item.image}
+          height="150rem"
+          width="150rem"
+          alt="item_image"
+        ></img>
         <p>{props.item.description}</p>
       </li>
     </CustomWrapper>
