@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import ProductList from "../components/products/ProductList";
 
@@ -11,8 +11,8 @@ function Products() {
   Thus we need to use useState hook to allow data to load 
   only after the whole response is fetched from the backend.
   */
-
-  if (isData) {
+  useEffect(() => {
+    setIsData(true);
     fetch("http://127.0.0.1:3002/product")
       .then((response) => response.json())
       .then((responseData) => {
@@ -20,9 +20,9 @@ function Products() {
         setIsData(false);
       })
       /*page is re-rendered after state change and this creates an infinite loop here. 
-    Therefore, need to put the if() condition. */
+    Therefore, need to use useEffect() to render it only one time. */
       .catch((err) => console.log(err));
-  }
+  }, []);
 
   if (isData) {
     return <div>Data is Loading..</div>;
