@@ -20,7 +20,7 @@ app.post("/product", async (req, res) => {
 
 app.get("/product", async (req, res) => {
   try {
-    console.log("Infinite Loop");
+    console.log("Single Loop");
     const products = await Product.find({});
     res.send({ status: "success", data: products }); //send to fetch on frontend
   } catch (error) {

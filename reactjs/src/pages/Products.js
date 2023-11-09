@@ -12,13 +12,17 @@ function Products() {
   only after the whole response is fetched from the backend.
   */
 
-  fetch("http://127.0.0.1:3002/product")
-    .then((response) => response.json())
-    .then((responseData) => {
-      setListOfItems(responseData.data);
-      setIsData(false);
-    })
-    .catch((err) => console.log(err));
+  if (isData) {
+    fetch("http://127.0.0.1:3002/product")
+      .then((response) => response.json())
+      .then((responseData) => {
+        setListOfItems(responseData.data);
+        setIsData(false);
+      })
+      /*page is re-rendered after state change and this creates an infinite loop here. 
+    Therefore, need to put the if() condition. */
+      .catch((err) => console.log(err));
+  }
 
   if (isData) {
     return <div>Data is Loading..</div>;
