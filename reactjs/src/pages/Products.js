@@ -1,32 +1,28 @@
+import { useState } from "react";
+
 import ProductList from "../components/products/ProductList";
 
 function Products() {
-  let listOfItems = [
-    {
-      id: "a",
-      itemName: "Pen",
-      image:
-        "https://5.imimg.com/data5/SELLER/Default/2020/10/PX/KF/AW/20193325/ink-pen-500x500.jpg",
-      description:
-        "React is a free and open-source front-end JavaScript library for building user interfaces based on components. \nIt is maintained by Meta and a community of individual developers and companies. \nReact can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.",
-    },
-    {
-      id: "b",
-      itemName: "Pencil",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfrX6sz4SCJWCavxPjUYoBjFFDNno5Cv6hf388vCq03rzDWKFAbsQayJDM3KethZFjoWQ",
-      description:
-        "React is a free and open-source front-end JavaScript library for building user interfaces based on components. \nIt is maintained by Meta and a community of individual developers and companies. \nReact can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.",
-    },
-    {
-      id: "c",
-      itemName: "Diary",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPBg4axmBIE1hP8xgAeKoazJhfP8a0YSKasTmU48dLk6qcxIFC4nAr26ojmpaMRkdAL_c",
-      description:
-        "React is a free and open-source front-end JavaScript library for building user interfaces based on components. \nIt is maintained by Meta and a community of individual developers and companies. \nReact can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.",
-    },
-  ];
+  let [listOfItems, setListOfItems] = useState([]);
+  let [isData, setIsData] = useState(true);
+
+  /*fetch is a promise, which is async and needs to be waited for. 
+  We cannot make this functional component Products() async
+  Thus we need to use useState hook to allow data to load 
+  only after the whole response is fetched from the backend.
+  */
+
+  fetch("http://127.0.0.1:3002/product")
+    .then((response) => response.json())
+    .then((responseData) => {
+      setListOfItems(responseData.data);
+      setIsData(false);
+    })
+    .catch((err) => console.log(err));
+
+  if (isData) {
+    return <div>Data is Loading..</div>;
+  }
 
   return (
     <div>

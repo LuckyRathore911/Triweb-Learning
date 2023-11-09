@@ -18,6 +18,17 @@ app.post("/product", async (req, res) => {
   }
 });
 
+app.get("/product", async (req, res) => {
+  try {
+    console.log("Infinite Loop");
+    const products = await Product.find({});
+    res.send({ status: "success", data: products }); //send to fetch on frontend
+  } catch (error) {
+    console.log(error.message);
+    res.send({ status: "error", message: error.message });
+  }
+});
+
 mongoose
   .connect(process.env.connection_string)
   .then(() => {
