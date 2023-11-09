@@ -1,25 +1,14 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import MainLayout from "./components/MainLayout";
-import UnderstandingProps from "./components/UnderstandingProps";
-import UseStateHook from "./components/UseStateHook";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
+import FavouriteItems from "./pages/FavouriteItems";
 
 function App() {
-  const [state, setState] = useState(true);
-
-  function close() {
-    setState(false);
-  }
-  function open() {
-    setState(true);
-  }
-
   return (
     <MainLayout>
       <Routes>
@@ -28,16 +17,8 @@ function App() {
         <Route path="/contacts" element={<Contacts />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/products/add" element={<AddProduct />}></Route>
+        <Route path="/products/favourite" element={<FavouriteItems />}></Route>
       </Routes>
-
-      <UnderstandingProps message="Hi, there!" />
-      <UnderstandingProps message="Hello guys!" />
-
-      {state ? (
-        <UseStateHook makeClosed={close} />
-      ) : (
-        <button onClick={open}>Open</button>
-      )}
     </MainLayout>
   );
 }

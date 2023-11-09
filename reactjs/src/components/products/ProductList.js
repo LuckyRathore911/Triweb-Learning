@@ -4,7 +4,7 @@ function ProductList(props) {
   return (
     <div>
       {props.listOfItems.map((item) => {
-        return <ProductItem key={item.id} id={item.id} item={item} />;
+        return <ProductItem key={item._id} id={item._id} item={item} />;
       })}
     </div>
   );
