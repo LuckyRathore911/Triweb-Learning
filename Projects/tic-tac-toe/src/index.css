@@ -13,20 +13,22 @@ justify-content: center;
 .square {
 background: #fff;
 border: 1px solid #999;
+height: 34px;
+width: 34px;
 float: left;
 font-size: 24px;
 font-weight: bold;
-line-height: 34px;
-height: 34px;
+/* line-height: 34px; */
 margin-right: -1px;
 margin-top: -1px;
 padding: 0;
 text-align: center;
-width: 34px;
 }
 
 .status{
 border: none;
+padding: 48px;
+padding: 48px;
 }
 
 .board-row {
@@ -37,4 +39,16 @@ display: table;
 
 .status {
 margin-bottom: 10px;
+}
+
+.parent-row{
+  display:flex;
+}
+
+.border-bottom{
+    border-bottom: 5px black solid;
+    /* height: 250px; */
+}
+.border-right{
+    border-right: 5px black solid;
 }
