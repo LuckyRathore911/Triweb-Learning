@@ -10,12 +10,14 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-function Board({ xIsNext, squares, onPlay }) {
+function Board({ xIsNext, squares, onPlay, setHistory, setCurrentMove }) {
+  let nextSquares = squares.slice(); //creates a copy of the squares array
+
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
-    const nextSquares = squares.slice(); //creates a copy of the squares array
+
     if (xIsNext) {
       nextSquares[i] = "X";
     } else {
@@ -28,6 +30,10 @@ function Board({ xIsNext, squares, onPlay }) {
   let status;
   if (winner) {
     status = "Winner: " + winner;
+    setTimeout(() => {
+      setHistory([Array(9).fill(null)]);
+      setCurrentMove(0);
+    }, 2000);
   } else {
     status = "Next Player: " + (xIsNext ? "X" : "O");
   }
@@ -113,7 +119,13 @@ export default function Game() {
   return (
     <div className="game">
       <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <Board
+          xIsNext={xIsNext}
+          squares={currentSquares}
+          onPlay={handlePlay}
+          setHistory={setHistory}
+          setCurrentMove={setCurrentMove}
+        />
       </div>
 
       <div className="game-info">
