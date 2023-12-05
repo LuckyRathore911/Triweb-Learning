@@ -75,3 +75,18 @@
 > a || b
 5
 ```
+
+15. Event loop.
+
+- because of the event loop model, Node.js never blocks: no deadlock like situation because it is single threaded
+
+- responsible for executing the code: node thread does not do code execution, the event loop does it making the thread free from being blocked
+
+- collection and processing of the events: event loop collects all events and gives intensive tasks to worker pool to process and the completed tasks are returned via callback return (event loop gives work to worker pool via "Register Callback" and the pool sends message "operation complete")
+
+- execution of queued sub tasks: a queue is formed to tell what tasks follow the current task
+
+16. Loop Queue.
+
+- a queue of tasks waiting to be executed
+- the queue waits synchronously for an event to arrive, sends it for processing and waits for another event
