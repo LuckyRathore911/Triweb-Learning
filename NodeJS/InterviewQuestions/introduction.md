@@ -90,3 +90,5 @@
 
 - a queue of tasks waiting to be executed
 - the queue waits synchronously for an event to arrive, sends it for processing and waits for another event
+
+17. [Destructuring of object and array](./destructuring.js)
