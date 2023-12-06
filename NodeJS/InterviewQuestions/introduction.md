@@ -92,3 +92,8 @@
 - the queue waits synchronously for an event to arrive, sends it for processing and waits for another event
 
 17. [Destructuring of object and array](./destructuring.js)
+
+18. [Arrow function](./arrowFunction.js)
+
+- it is an anonymous function and is stored in a variable, hence given a name, explicitly
+- it does not have its own "this"
