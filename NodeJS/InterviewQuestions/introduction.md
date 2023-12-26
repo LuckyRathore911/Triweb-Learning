@@ -97,3 +97,8 @@
 
 - it is an anonymous function and is stored in a variable, hence given a name, explicitly
 - it does not have its own "this"
+
+19. [call](./call.js)
+
+- it provides a new value of "this" to a function
+- helps in inheriting a method
