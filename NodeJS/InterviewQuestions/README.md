@@ -111,3 +111,8 @@
 21. [setTimeout](./setTimeout.js)
 
 - its callback is placed in the "TIMER QUEUE" of the next cycle of the event loop
+
+22. [process.nextTick](./process.nextTick.js)
+
+- it is executed after the current code, which is being executed
+- it is watched at the very beginning of the subsequent cycles of the event loop, before any other queue
