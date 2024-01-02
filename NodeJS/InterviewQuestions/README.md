@@ -105,5 +105,9 @@
 20. [setImmediate](./setImmediate.js)
 
 - not immediate like its name
-- its callback is placed in the "check queue" of the next cycle of the event loop
+- its callback is placed in the "CHECK QUEUE" of the next cycle of the event loop
 - CHECK QUEUE occurs later than the TIMER QUEUE
+
+21. [setTimeout](./setTimeout.js)
+
+- its callback is placed in the "TIMER QUEUE" of the next cycle of the event loop
