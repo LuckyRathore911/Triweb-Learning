@@ -116,3 +116,8 @@
 
 - it is executed after the current code, which is being executed
 - it is watched at the very beginning of the subsequent cycles of the event loop, before any other queue
+
+23. [apply](apply.js)
+
+- it is like call, used to inherit a function but with a difference
+- in call(), we pass arguments whereas in apply(), we pass array
