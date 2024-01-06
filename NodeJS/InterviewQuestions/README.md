@@ -121,3 +121,8 @@
 
 - it is like call, used to inherit a function but with a difference
 - in call(), we pass arguments whereas in apply(), we pass array
+
+24. [bind](./bind.js)
+
+- to make a function be called with a particular 'this' no matter how it is called
+- in call() and apply() we bind 'this' and execute the function at that particular time while in bind() we bind 'this' and execute it later
