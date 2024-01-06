@@ -126,3 +126,7 @@
 
 - to make a function be called with a particular 'this' no matter how it is called
 - in call() and apply() we bind 'this' and execute the function at that particular time while in bind() we bind 'this' and execute it later
+
+25. [yield](./yield.js)
+
+- the 'yield' keyword is used to pause and resume the generator function
