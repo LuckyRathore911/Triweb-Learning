@@ -150,3 +150,11 @@
   - the idea is to store multiple items of the same type together
 - a map is an associative container that stores elements in a mapped manner
   - used to store records
+
+29. Callback
+
+- asynchronous, equivalent of a function
+- helps in non-blocking code
+- helps in performance of single-thread Node.js application
+- an event of multiple levels of callbacks inside callbacks is called a callback hell
+- we use async, await or promise to avoid callback hell (or theoretically, we will work in modules)
