@@ -143,3 +143,10 @@
   - it does not have any direct method to fetch keys
   - existence of keys is unpredictable
 - map accepts only primitive data types as keys
+
+28. Map vs Array
+
+- an array is a collection of items stored at contiguous memory locations
+  - the idea is to store multiple items of the same type together
+- a map is an associative container that stores elements in a mapped manner
+  - used to store records
