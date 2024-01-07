@@ -135,3 +135,11 @@
 
 - map creates a new array with the result of calling a new function for every array element
 - map does not execute the function for array elements without values
+
+27. [map and weakmap]("./map and weakmap.js")
+
+- a weakmap accepts only objects as keys
+  - it has no 'length' property
+  - it does not have any direct method to fetch keys
+  - existence of keys is unpredictable
+- map accepts only primitive data types as keys
