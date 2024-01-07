@@ -130,3 +130,8 @@
 25. [yield](./yield.js)
 
 - the 'yield' keyword is used to pause and resume the generator function
+
+26. [map function](./map.js)
+
+- map creates a new array with the result of calling a new function for every array element
+- map does not execute the function for array elements without values
