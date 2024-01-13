@@ -4,7 +4,7 @@
 
 3. It is single-threaded; runs on the basis of an event loop.
 
-4. V8 engine compiles Node.js code with the help of JavaScript to convert to machine code.
+4. V8 engine (made with C++) compiles Node.js code with the help of JavaScript to convert to machine code.
 
 5. It is an asynchronous, event-driven programming language.
 
@@ -17,22 +17,21 @@
 7. When to not use Node.js?
 
 - scenerios requiring long processing time
-  - ML\*AI projects
+  - ML/AI projects
 
 8. Latest versions of Node.js and npm in your project.
 
 9. We already have PHP, Java, Python, Ruby, etc. then why to use Node.js?
 
 - speed
-- easy
-- same language across the tech\*stack
-- real\*time data
+- easy (same language across the tech stack)
+- real-time data
 
 10. Area where PHP is better than Node.js.
 
-- server\*cost/hosting
+- server cost/hosting
 
-11. Client\*server interaction.
+11. Client-server interaction.
 
 - Client
   - HTML
@@ -49,21 +48,21 @@
   - authorization
   - business logic
 
-12. Scenerios when node.js works and the client\*server interaction is not needed.
+12. Scenerios when node.js works and the client-server interaction is not needed.
 
-- changes in database
+- transferring data from one database to another
 - automatic emails (birthday wishes, etc.), push notifications, etc.
 
 13. Node.js with MySQL or MongoDB?
 
-- when "read" operations are more then prefer MongoDB, eg, user data in e\*commerce website.
-- when "write" operations are more then prefer MySQL, eg, transaction details.
+- when "read" operations are more then prefer MongoDB or any NoSQL database, eg, user data in e-commerce website.
+- when "write" operations are more then prefer MySQL or any SQL database, eg, transaction details.
 
 14. REPL
 
 - Read Eval Print Loop
 - a loop is created to try small features after writing "node" in the command prompt,
-  which is exited by ".exit" or twice "Ctrl + D"
+  which is exited by ".exit" or twice "Ctrl + D" or twice "Ctrl + C"
 
 ```bash
 > a=5
@@ -80,11 +79,11 @@
 
 - because of the event loop model, Node.js never blocks: no deadlock like situation because it is single threaded
 
-- responsible for executing the code: node thread does not do code execution, the event loop does it making the thread free from being blocked
-
-- collection and processing of the events: event loop collects all events and gives intensive tasks to worker pool to process and the completed tasks are returned via callback return (event loop gives work to worker pool via "Register Callback" and the pool sends message "operation complete")
+- collection and processing of the events: thread gives each event for processing to the event loop, which processes small events and gives intensive tasks (such as working with file systems or databases, computations, etc.) to the worker pool to process. The worker pool returns the completed tasks via a callback return (event loop gives work to worker pool via "Register Callback" and the pool sends message "operation complete")
 
 - execution of queued sub tasks: a queue is formed to tell what tasks follow the current task
+
+- responsible for executing the code: node thread does not do code execution, the event loop does it making the thread free from being blocked
 
 16. Loop Queue.
 
@@ -102,3 +101,73 @@
 
 - it provides a new value of "this" to a function
 - helps in inheriting a method
+
+20. [setImmediate](./setImmediate.js)
+
+- not immediate like its name
+- its callback is placed in the "CHECK QUEUE" of the next cycle of the event loop
+- CHECK QUEUE occurs later than the TIMER QUEUE
+
+21. [setTimeout](./setTimeout.js)
+
+- its callback is placed in the "TIMER QUEUE" of the next cycle of the event loop
+
+22. [process.nextTick](./process.nextTick.js)
+
+- it is executed after the current code, which is being executed
+- it is watched at the very beginning of the subsequent cycles of the event loop, before any other queue
+
+23. [apply](apply.js)
+
+- it is like call, used to inherit a function but with a difference
+- in call(), we pass arguments whereas in apply(), we pass array
+
+24. [bind](./bind.js)
+
+- to make a function be called with a particular 'this' no matter how it is called
+- in call() and apply() we bind 'this' and execute the function at that particular time while in bind() we bind 'this' and execute it later
+
+25. [yield](./yield.js)
+
+- the 'yield' keyword is used to pause and resume the generator function
+
+26. [map function](./map.js)
+
+- map creates a new array with the result of calling a new function for every array element
+- map does not execute the function for array elements without values
+
+27. [map and weakmap]("./map and weakmap.js")
+
+- a weakmap accepts only objects as keys
+  - it has no 'length' property
+  - it does not have any direct method to fetch keys
+  - existence of keys is unpredictable
+- map accepts only primitive data types as keys
+
+28. Map vs Array
+
+- an array is a collection of items stored at contiguous memory locations
+  - the idea is to store multiple items of the same type together
+- a map is an associative container that stores elements in a mapped manner
+  - used to store records
+
+29. Callback
+
+- asynchronous, equivalent of a function
+- helps in non-blocking code
+- helps in performance of single-thread Node.js application
+- an event of multiple levels of callbacks inside callbacks is called a callback hell
+- we use async, await or promise to avoid callback hell (or theoretically, we will work in modules)
+
+30. [new.target](./new.target.js)
+
+- it is a pseudo property which lets us detect whether a function or constructor was called using the "new" operator or not
+
+31. [Object to String and String to Object conversion]("./parse and stringify.js")
+
+- JSON.stringify() is used to convert an object to string
+- JSON.parse() is used to convert a string to object
+
+32. [Can we create an http server using Node.js?]("./http server/http server.js")
+
+- Yes, we can create it using http package and createServer function
