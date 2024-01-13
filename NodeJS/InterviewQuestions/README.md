@@ -171,3 +171,5 @@
 32. [Can we create an http server using Node.js?]("./http server/http server.js")
 
 - Yes, we can create it using http package and createServer function
+
+33. [Access Redis using Node client](./redis/redis.js)
