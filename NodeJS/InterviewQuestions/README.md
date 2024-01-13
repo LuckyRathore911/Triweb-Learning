@@ -158,3 +158,7 @@
 - helps in performance of single-thread Node.js application
 - an event of multiple levels of callbacks inside callbacks is called a callback hell
 - we use async, await or promise to avoid callback hell (or theoretically, we will work in modules)
+
+30. [new.target](new.target.js)
+
+- it is a pseudo property which lets us detect whether a function or constructor was called using the "new" operator or not
