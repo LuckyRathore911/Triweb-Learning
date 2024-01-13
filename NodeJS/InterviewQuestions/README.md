@@ -159,6 +159,11 @@
 - an event of multiple levels of callbacks inside callbacks is called a callback hell
 - we use async, await or promise to avoid callback hell (or theoretically, we will work in modules)
 
-30. [new.target](new.target.js)
+30. [new.target](./new.target.js)
 
 - it is a pseudo property which lets us detect whether a function or constructor was called using the "new" operator or not
+
+31. [Object to String and String to Object conversion]("./parse and stringify.js")
+
+- JSON.stringify() is used to convert an object to string
+- JSON.parse() is used to convert a string to object
