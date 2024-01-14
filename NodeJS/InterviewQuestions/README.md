@@ -136,7 +136,7 @@
 - map creates a new array with the result of calling a new function for every array element
 - map does not execute the function for array elements without values
 
-27. [map and weakmap]("./map and weakmap.js")
+27. [map and weakmap](<./map and weakmap.js>)
 
 - a weakmap accepts only objects as keys
   - it has no 'length' property
@@ -163,13 +163,17 @@
 
 - it is a pseudo property which lets us detect whether a function or constructor was called using the "new" operator or not
 
-31. [Object to String and String to Object conversion]("./parse and stringify.js")
+31. [Object to String and String to Object conversion](<./parse and stringify.js>)
 
 - JSON.stringify() is used to convert an object to string
 - JSON.parse() is used to convert a string to object
 
-32. [Can we create an http server using Node.js?]("./http server/http server.js")
+32. [Can we create an http server using Node.js?](<./http server/http server.js>)
 
 - Yes, we can create it using http package and createServer function
 
 33. [Access Redis using Node client](./redis/redis.js)
+
+34. [Event Emitter](./eventEmitter)
+
+- base of event-driven architecture
