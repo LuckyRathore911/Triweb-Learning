@@ -177,3 +177,13 @@
 34. [Event Emitter](./eventEmitter)
 
 - base of event-driven architecture
+
+35. libuv
+
+- it is a multi-platform C library that provides support for asynchronous I/O based on event loops
+- it implements event-loop that efficiently manages and dispatches events, such as I/O operations, event loops, callbacks, etc. and event loop is the core mechanism behind non-blocking and event-driven architecture of Node.js
+- it abstracts the underlying operating system's I/O capabilities and provides a consistent API across different operating systems for handling events, timers, file operations, networking, and more
+  - it allows Node.js applications to be portable and run seamlessly on different systems
+- it also offers threading and synchronization features
+  - thread pools and mutexes can be utilized by Node.js for executing computationally intensive tasks or parallelizing certain operations
+- its name stands for "Unicorn Velociraptor"
