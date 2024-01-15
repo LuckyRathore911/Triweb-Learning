@@ -187,3 +187,7 @@
 - it also offers threading and synchronization features
   - thread pools and mutexes can be utilized by Node.js for executing computationally intensive tasks or parallelizing certain operations
 - its name stands for "Unicorn Velociraptor"
+
+36. [closure][./closure.js]
+
+- an inner function preserves the environment of its outer function
