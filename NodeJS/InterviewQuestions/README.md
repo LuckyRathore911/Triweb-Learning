@@ -203,3 +203,8 @@
 39. [Projection](./mongoose/user-controller.js)
 
 - it allows us to control which fields appear in the documents returned by read operations
+
+40. [Promise](./promise.js)
+
+- it is an object that represents the eventual completion or failure of an asynchronous operation
+- it provides a way to handle the outcome of asynchronous code in a clean and efficient manner
