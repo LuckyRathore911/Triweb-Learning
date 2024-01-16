@@ -208,3 +208,8 @@
 
 - it is an object that represents the eventual completion or failure of an asynchronous operation
 - it provides a way to handle the outcome of asynchronous code in a clean and efficient manner
+
+41. [Promise.all(iterable)](./promise.all.js)
+
+- it takes an iterable of promises as input and returns a single Promise
+- it either waits for all promises to resolve or for any one to reject and then returns the corresponding message
