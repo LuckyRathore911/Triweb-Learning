@@ -199,3 +199,7 @@
 - refer code
 
 38. [NodeJS Mongoose data fetch from MongoDB](./mongoose)
+
+39. [Projection](./mongoose/user-controller.js)
+
+- it allows us to control which fields appear in the documents returned by read operations
