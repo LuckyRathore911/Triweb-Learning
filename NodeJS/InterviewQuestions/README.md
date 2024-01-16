@@ -213,3 +213,7 @@
 
 - it takes an iterable of promises as input and returns a single Promise
 - it either waits for all promises to resolve or for any one to reject and then returns the corresponding message
+
+42. [Promise.allSettled](./promise.allSettled.js)
+
+- it waits for all promises to settle whether resolved or rejected
