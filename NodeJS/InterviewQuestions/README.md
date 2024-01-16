@@ -194,4 +194,8 @@
 
 37. [Routers](./router)
 
+- `npm install node express`
+
 - refer code
+
+38. [NodeJS Mongoose data fetch from MongoDB](./mongoose)
