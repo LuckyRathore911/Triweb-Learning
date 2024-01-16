@@ -214,6 +214,17 @@
 - it takes an iterable of promises as input and returns a single Promise
 - it either waits for all promises to resolve or for any one to reject and then returns the corresponding message
 
-42. [Promise.allSettled](./promise.allSettled.js)
+42. [Promise.allSettled()](./promise.allSettled.js)
 
 - it waits for all promises to settle whether resolved or rejected
+
+43. [Promise.any(iterable)](./promise.any.js)
+
+- it waits until one of the promises gets resolved
+- if all promises were rejected then there would be an error
+
+```
+[AggregateError: All promises were rejected] {
+  [errors]: [ 'f1', 'f2', 'f3' ]
+}
+```
