@@ -228,3 +228,7 @@
   [errors]: [ 'f1', 'f2', 'f3' ]
 }
 ```
+
+44. [promise.race(iterable)](./promise.race.js)
+
+- it returns whichever promise settled first whether resolved or rejected
