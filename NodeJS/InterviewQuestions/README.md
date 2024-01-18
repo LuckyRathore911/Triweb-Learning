@@ -251,3 +251,8 @@
 49. [Parallel Execution with async-await](<./parallel execution with async await.js>)
 
 - await does not block the main flow
+
+50. Debugging Node.js
+
+- type this command in the terminal: `node --inspect=3006 app.js`
+- Any browser -> `chrome://inspect/#devices` -> `configure` -> `localhost:3006` -> `Done` -> `Inspect` -> `Ctrl+P` -> select file
