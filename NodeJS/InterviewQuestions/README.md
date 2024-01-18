@@ -247,3 +247,7 @@
 - an aync function always returns a promise
   - the value that it resolves is the value returned by the function
   - the promise is rejected if the function throws an error
+
+49. [Parallel Execution with async-await](<./parallel execution with async await.js>)
+
+- await does not block the main flow
