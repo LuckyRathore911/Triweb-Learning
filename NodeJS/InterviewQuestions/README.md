@@ -232,3 +232,8 @@
 44. [promise.race(iterable)](./promise.race.js)
 
 - it returns whichever promise settled first whether resolved or rejected
+
+45. [Async/Await](<./async await.js>)
+
+- it is a tool for managing asynchronous code in a more readable and structured manner, making it easier to work with promises and asynchronous operations
+- await can only be used inside an async function
