@@ -237,3 +237,5 @@
 
 - it is a tool for managing asynchronous code in a more readable and structured manner, making it easier to work with promises and asynchronous operations
 - await can only be used inside an async function
+
+46. [async-await with immediately invoked function](<./async await with immediately invoked function>)
