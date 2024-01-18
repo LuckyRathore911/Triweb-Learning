@@ -239,3 +239,5 @@
 - await can only be used inside an async function
 
 46. [async-await with immediately invoked function](<./async await with immediately invoked function>)
+
+47. [async await chaining](<./async await chaining>)
