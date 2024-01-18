@@ -241,3 +241,9 @@
 46. [async-await with immediately invoked function](<./async await with immediately invoked function>)
 
 47. [async await chaining](<./async await chaining>)
+
+48. [Exception handling in async await](<./resolve reject with async await.js>)
+
+- an aync function always returns a promise
+  - the value that it resolves is the value returned by the function
+  - the promise is rejected if the function throws an error
