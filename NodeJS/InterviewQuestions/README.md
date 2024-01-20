@@ -266,3 +266,12 @@
   - Object.assign()
   - .slice(), only for array
   - Array.from(), only for array
+
+52. [Deep Copy](<./Deep Copy>)
+
+- it constructs a new compound object and then recursively inserts copies of the objects, found in the original, into it
+- ways of deep copy:
+  - lodash library `npm install lodash`: \_.cloneDeep()
+  - ramda library `npm install ramda`: R.clone()
+  - JSON.parse(JSON.stringify()) [not preferable]
+  - write a custom program
