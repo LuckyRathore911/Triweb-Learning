@@ -1,7 +1,15 @@
 import React from "react";
 
+import Experience from "../components/Experience";
+
 const WorkExperience = () => {
-  return <h1>Work Experience</h1>;
+  return (
+    <>
+      <Experience />
+      <Experience />
+      <Experience />
+    </>
+  );
 };
 
 export default WorkExperience;

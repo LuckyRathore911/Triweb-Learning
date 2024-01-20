@@ -1,7 +1,14 @@
 import React from "react";
 
+import AlmaMater from "../components/AlmaMater";
+
 const Education = () => {
-  return <h1>Education</h1>;
+  return (
+    <>
+      <AlmaMater />
+      <AlmaMater />
+    </>
+  );
 };
 
 export default Education;
