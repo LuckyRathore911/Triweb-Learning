@@ -275,3 +275,14 @@
   - ramda library `npm install ramda`: R.clone()
   - JSON.parse(JSON.stringify()) [not preferable]
   - write a custom program
+
+53. [Revealing module pattern](<./revealing module pattern.js>)
+
+- it is a design pattern in JavaScript used for creating modular and organized code
+- it allows us to define private and public members in a module, making it easier to manage and maintain our code
+  - JS does not have a feature of making variables or functions public or private
+  - a module is like a small container for our code, which groups related funcions and variables together
+  - private members are the parts of our module that are hidden from the outside world
+  - public members are the parts of our module that are exposed to the outside world
+  - public interface: instead of revealing all the details of a module, a public interface is defined with a list of functions and variables that we want others to use
+  - reveal: the key idea is that we explicitly reveal which private members are accessible from the outside by mapping them to public members. We decide what part of our module is a public API
