@@ -1,0 +1,25 @@
+console.log("------------Array-----------");
+
+const arr = [1, 2, 3, 4];
+const newArr = [...arr]; //this lets newArr has a copy of the elements of the array arr
+
+console.log("before", arr);
+console.log("before", newArr);
+
+arr[0] = 0;
+
+console.log("after", arr);
+console.log("after", newArr);
+
+console.log("------------Object-----------");
+
+const obj = { a: 1, b: 2 };
+const newObj = { ...obj }; //this lets newObj has a copy of the elements of the array obj
+
+console.log("before", obj);
+console.log("before", newObj);
+
+obj.a = 0;
+
+console.log("after", obj);
+console.log("after", newObj);

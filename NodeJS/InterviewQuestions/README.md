@@ -136,7 +136,7 @@
 - map creates a new array with the result of calling a new function for every array element
 - map does not execute the function for array elements without values
 
-27. [map and weakmap]("./map and weakmap.js")
+27. [map and weakmap](<./map and weakmap.js>)
 
 - a weakmap accepts only objects as keys
   - it has no 'length' property
@@ -163,11 +163,126 @@
 
 - it is a pseudo property which lets us detect whether a function or constructor was called using the "new" operator or not
 
-31. [Object to String and String to Object conversion]("./parse and stringify.js")
+31. [Object to String and String to Object conversion](<./parse and stringify.js>)
 
 - JSON.stringify() is used to convert an object to string
 - JSON.parse() is used to convert a string to object
 
-32. [Can we create an http server using Node.js?]("./http server/http server.js")
+32. [Can we create an http server using Node.js?](<./http server/http server.js>)
 
 - Yes, we can create it using http package and createServer function
+
+33. [Access Redis using Node client](./redis/redis.js)
+
+34. [Event Emitter](./eventEmitter)
+
+- base of event-driven architecture
+
+35. libuv
+
+- it is a multi-platform C library that provides support for asynchronous I/O based on event loops
+- it implements event-loop that efficiently manages and dispatches events, such as I/O operations, event loops, callbacks, etc. and event loop is the core mechanism behind non-blocking and event-driven architecture of Node.js
+- it abstracts the underlying operating system's I/O capabilities and provides a consistent API across different operating systems for handling events, timers, file operations, networking, and more
+  - it allows Node.js applications to be portable and run seamlessly on different systems
+- it also offers threading and synchronization features
+  - thread pools and mutexes can be utilized by Node.js for executing computationally intensive tasks or parallelizing certain operations
+- its name stands for "Unicorn Velociraptor"
+
+36. [Closure][./closure.js]
+
+- an inner function preserves the environment of its outer function
+
+37. [Routers](./router)
+
+- `npm install node express`
+
+- refer code
+
+38. [NodeJS Mongoose data fetch from MongoDB](./mongoose)
+
+39. [Projection](./mongoose/user-controller.js)
+
+- it allows us to control which fields appear in the documents returned by read operations
+
+40. [Promise](./promise.js)
+
+- it is an object that represents the eventual completion or failure of an asynchronous operation
+- it provides a way to handle the outcome of asynchronous code in a clean and efficient manner
+
+41. [Promise.all(iterable)](./promise.all.js)
+
+- it takes an iterable of promises as input and returns a single Promise
+- it either waits for all promises to resolve or for any one to reject and then returns the corresponding message
+
+42. [Promise.allSettled()](./promise.allSettled.js)
+
+- it waits for all promises to settle whether resolved or rejected
+
+43. [Promise.any(iterable)](./promise.any.js)
+
+- it waits until one of the promises gets resolved
+- if all promises were rejected then there would be an error
+
+```
+[AggregateError: All promises were rejected] {
+  [errors]: [ 'f1', 'f2', 'f3' ]
+}
+```
+
+44. [promise.race(iterable)](./promise.race.js)
+
+- it returns whichever promise settled first whether resolved or rejected
+
+45. [Async/Await](<./async await.js>)
+
+- it is a tool for managing asynchronous code in a more readable and structured manner, making it easier to work with promises and asynchronous operations
+- await can only be used inside an async function
+
+46. [async-await with immediately invoked function](<./async await with immediately invoked function>)
+
+47. [async await chaining](<./async await chaining>)
+
+48. [Exception handling in async await](<./resolve reject with async await.js>)
+
+- an aync function always returns a promise
+  - the value that it resolves is the value returned by the function
+  - the promise is rejected if the function throws an error
+
+49. [Parallel Execution with async-await](<./parallel execution with async await.js>)
+
+- await does not block the main flow
+
+50. Debugging Node.js
+
+- type this command in the terminal: `node --inspect=3006 app.js`
+- Any browser -> `chrome://inspect/#devices` -> `configure` -> `localhost:3006` -> `Done` -> `Inspect` -> `Ctrl+P` -> select file
+
+51. [Shallow Copy](<./Shallow Copy>)
+
+- it refers to the fact that only one level is copied
+- it works fine with arrays or objects containing only primitive values
+- ways of shallow copy:
+  - spread operator
+  - Object.assign()
+  - .slice(), only for array
+  - Array.from(), only for array
+
+52. [Deep Copy](<./Deep Copy>)
+
+- it constructs a new compound object and then recursively inserts copies of the objects, found in the original, into it
+- ways of deep copy:
+  - lodash library `npm install lodash`: \_.cloneDeep()
+  - ramda library `npm install ramda`: R.clone()
+  - JSON.parse(JSON.stringify()) [not preferable]
+  - write a custom program
+
+53. [Revealing module pattern](<./revealing module pattern.js>)
+
+- it is a design pattern in JavaScript used for creating modular and organized code
+- it allows us to define private and public members in a module, making it easier to manage and maintain our code
+  - JS does not have a feature of making variables or functions public or private
+  - a module is like a small container for our code, which groups related funcions and variables together
+  - private members are the parts of our module that are hidden from the outside world
+  - public members are the parts of our module that are exposed to the outside world
+  - public interface: instead of revealing all the details of a module, a public interface is defined with a list of functions and variables that we want others to use
+  - reveal: the key idea is that we explicitly reveal which private members are accessible from the outside by mapping them to public members. We decide what part of our module is a public API
