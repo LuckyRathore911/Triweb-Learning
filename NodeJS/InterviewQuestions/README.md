@@ -256,3 +256,13 @@
 
 - type this command in the terminal: `node --inspect=3006 app.js`
 - Any browser -> `chrome://inspect/#devices` -> `configure` -> `localhost:3006` -> `Done` -> `Inspect` -> `Ctrl+P` -> select file
+
+51. [Shallow Copy](<./Shallow Copy>)
+
+- it refers to the fact that only one level is copied
+- it works fine with arrays or objects containing only primitive values
+- ways of shallow copy:
+  - spread operator
+  - Object.assign()
+  - .slice(), only for array
+  - Array.from(), only for array
