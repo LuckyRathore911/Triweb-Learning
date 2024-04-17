@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 import MessageForm from "../components/MessageForm";
 
 function ContactMe() {
+  const navigate = useNavigate();
+
   function userInputHandler(input) {
     const url = process.env.REACT_APP_BACKEND_URL
       ? process.env.REACT_APP_BACKEND_URL
@@ -15,6 +19,7 @@ function ContactMe() {
     })
       .then((response) => response.json()) //received from backend
       .then((data) => console.log(data.status))
+      .then(() => navigate("/", { replace: true }))
       .catch((err) => console.log(err));
   }
   return (
