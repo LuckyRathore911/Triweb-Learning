@@ -15,8 +15,8 @@ app.get("/", (req, res) => {
 
 app.post("/contact-me", async (req, res) => {
   try {
-    await ContactForm.create(req.body);
-    res.send({ status: "Form submitted successfully!" }); //send to frontend  .. ContactMe.jsx
+    const sender = await ContactForm.create(req.body);
+    res.send({ status: "Form submitted successfully!", sender: sender }); //send to frontend  .. ContactMe.jsx
   } catch (error) {
     console.log(error.message);
     res.send({ status: "error", message: error.message });
