@@ -8,14 +8,12 @@ function ContactMe() {
   const [senderName, setSenderName] = useState("");
 
   function userInputHandler(input) {
-    const url = process.env.REACT_APP_BACKEND_URL
-      ? process.env.REACT_APP_BACKEND_URL
-      : "http://localhost:3002/contact-me";
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
     /*this fetch request is only triggered by form submission, that's why re-rendering of the component 
     does not trigger any further fetch requests or state updates, hence does not form any infinite loop*/
 
-    fetch(url, {
+    fetch(backendUrl, {
       method: "POST",
       body: JSON.stringify(input),
       headers: {
@@ -33,7 +31,7 @@ function ContactMe() {
   return (
     <>
       {senderName ? (
-        `Hi ${senderName}, your message has been received successfully`
+        `Hi ${senderName}, your message has been received successfully!`
       ) : (
         <MessageForm userInputHandler={userInputHandler} />
       )}
