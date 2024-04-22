@@ -7,7 +7,6 @@ const WorkExperience = () => {
     <>
       <Experience />
       <Experience />
-      <Experience />
     </>
   );
 };
