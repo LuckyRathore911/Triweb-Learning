@@ -13,6 +13,7 @@ import Navigation from "./components/Navigation";
 function App() {
   return (
     <div className="app">
+      <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/projects" element={<Projects />} />
@@ -21,7 +22,6 @@ function App() {
         <Route exact path="/extra-curricular" element={<ExtraCurricular />} />
         <Route exact path="/contact-me" element={<ContactMe />} />
       </Routes>
-      <Navigation />
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
+import Styles from "../styles/MessageForm.module.css";
+
 const MessageForm = (props) => {
   const sender_name_ref = useRef();
   const sender_email_id_ref = useRef();
@@ -42,7 +44,7 @@ const MessageForm = (props) => {
 
   return (
     <>
-      <form className="" ref={form} onSubmit={submitHandler}>
+      <form className={Styles.form} ref={form} onSubmit={submitHandler}>
         <div className="">
           <label htmlFor="sender_name">Name</label>
           <input

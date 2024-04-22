@@ -1,8 +1,10 @@
 import React from "react";
 
+import Styles from "../styles/Home.module.css";
+
 const Home = () => {
   return (
-    <>
+    <div className={Styles.home}>
       <h1>Lucky Rathore</h1>
       <img
         src={process.env.REACT_APP_IMAGE_LINK}
@@ -10,8 +12,10 @@ const Home = () => {
         width="250"
         height="260"
       ></img>
-      <a href={process.env.REACT_APP_RESUME_LINK}>Resume</a>
-    </>
+      <a className={Styles.resume} href={process.env.REACT_APP_RESUME_LINK}>
+        Resume
+      </a>
+    </div>
   );
 };
 
