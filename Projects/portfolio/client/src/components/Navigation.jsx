@@ -1,16 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Styles from "../styles/Navigation.module.css";
+
 const Navigation = () => {
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/projects">Projects</Link>
-      <Link to="/experience">WorkExperience</Link>
-      <Link to="/education">Education</Link>
-      <Link to="/extra-curricular">ExtraCurricular</Link>
-      <Link to="/contact-me">ContactMe</Link>
-    </div>
+    <ul className={Styles.navigation}>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/projects">Projects</Link>
+      </li>
+      <li>
+        <Link to="/experience">WorkExperience</Link>
+      </li>
+      <li>
+        <Link to="/education">Education</Link>
+      </li>
+      <li>
+        <Link to="/extra-curricular">ExtraCurricular</Link>
+      </li>
+      <li>
+        <Link to="/contact-me">ContactMe</Link>
+      </li>
+    </ul>
   );
 };
 
