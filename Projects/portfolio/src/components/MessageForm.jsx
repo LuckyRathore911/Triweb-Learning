@@ -4,11 +4,7 @@ import emailjs from "@emailjs/browser";
 
 import Styles from "../styles/MessageForm.module.css";
 
-const MessageForm = (props) => {
-  const sender_name_ref = useRef();
-  const sender_email_id_ref = useRef();
-  const sender_message_ref = useRef();
-
+const MessageForm = () => {
   const form = useRef();
   const id = process.env.REACT_APP_EMAILJS_SERVICE_ID;
   const template = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
@@ -16,17 +12,6 @@ const MessageForm = (props) => {
 
   function submitHandler(event) {
     event.preventDefault();
-
-    const sender_name = sender_name_ref.current.value;
-    const sender_email_id = sender_email_id_ref.current.value;
-    const sender_message = sender_message_ref.current.value;
-
-    const sender = {
-      sender_name,
-      sender_email_id,
-      sender_message,
-    };
-    props.userInputHandler(sender);
 
     emailjs
       .sendForm(`${id}`, `${template}`, form.current, {
@@ -48,29 +33,34 @@ const MessageForm = (props) => {
         <div className="">
           <label htmlFor="sender_name">Name</label>
           <input
+            className="input_area"
             type="text"
             id="sender_name"
             name="sender_name"
-            ref={sender_name_ref}
+            required
           ></input>
         </div>
 
         <div className="">
           <label htmlFor="sender_email_id">Email Id</label>
           <input
+            class="input_area"
             type="email"
             id="sender_email_id"
             name="sender_email_id"
-            ref={sender_email_id_ref}
+            required
           ></input>
         </div>
 
         <div className="">
           <label htmlFor="sender_message">Message</label>
           <textarea
+            class="input_area"
             id="sender_message"
             name="sender_message"
-            ref={sender_message_ref}
+            rows="5"
+            cols="100"
+            required
           ></textarea>
         </div>
 
