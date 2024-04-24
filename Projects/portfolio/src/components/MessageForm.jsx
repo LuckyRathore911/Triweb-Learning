@@ -32,21 +32,36 @@ const MessageForm = () => {
       <form className={Styles.form} ref={form} onSubmit={submitHandler}>
         <div className="">
           <label htmlFor="sender_name">Name</label>
-          <input type="text" id="sender_name" name="sender_name"></input>
+          <input
+            className="input_area"
+            type="text"
+            id="sender_name"
+            name="sender_name"
+            required
+          ></input>
         </div>
 
         <div className="">
           <label htmlFor="sender_email_id">Email Id</label>
           <input
+            class="input_area"
             type="email"
             id="sender_email_id"
             name="sender_email_id"
+            required
           ></input>
         </div>
 
         <div className="">
           <label htmlFor="sender_message">Message</label>
-          <textarea id="sender_message" name="sender_message"></textarea>
+          <textarea
+            class="input_area"
+            id="sender_message"
+            name="sender_message"
+            rows="5"
+            cols="100"
+            required
+          ></textarea>
         </div>
 
         <button>Send</button>

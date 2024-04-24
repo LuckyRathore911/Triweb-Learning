@@ -5,18 +5,20 @@
 }
 
 label{
-    width: 8rem;
+    display: inline-block; 
+    width: 130px;
+    padding:0.5rem;
     font-size: 1.2rem;
+    text-align: center;
     margin: 1rem 4rem 0 2.4rem;
-    padding: 0.4rem;
     border-radius: 5%;
+    box-shadow: 0.2rem 0.2rem 0.2rem rgb(161, 160, 160);
 }
-input{
-    width:40rem;
+input {
+    width:46.25rem;
     font-size: 1rem;
     padding: 0.4rem;
-    border-radius: 5%;
-    border: 0.1rem solid black;
+    border: 0.1rem solid red;
 }
 button{
     margin: 2rem 2.4rem 2rem 2.4rem;
@@ -32,5 +34,4 @@ button{
 button:hover{
     background-color: rgb(10, 128, 175) ;
     color: white;
-    border: 0.1rem solid white;
 }
